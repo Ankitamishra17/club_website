@@ -39,7 +39,7 @@ export default function Navbar() {
         {/* Button */}
         <div className="hidden md:block">
           <motion.button
-            className="relative overflow-hidden mt-2 px-6 py-3 cursor-pointer uppercase text-md font-bold tracking-wider  text-white
+            className="relative overflow-hidden mt-2 px-6 md:px-2 py-3 cursor-pointer uppercase text-md font-bold tracking-wider  text-white
              bg-[linear-gradient(to_right,var(--color-gradient-left),var(--color-gradient-right))]
               shadow-[var(--shadow-glow)]"
             initial={{ opacity: 0, y: 40 }}

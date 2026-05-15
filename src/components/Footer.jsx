@@ -4,13 +4,13 @@ import { motion } from "framer-motion";
 
 export default function Footer() {
   return (
-    <footer className="bg-[var(--color-dark)] text-white px-6 md:px-16 py-20">
-      {/* Top Section */}
+    <footer className="bg-[var(--color-dark)] text-white px-6 sm:px-10 md:px-16 py-16 md:py-20 overflow-x-hidden">
+      {/* TOP SECTION */}
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
-        className="flex flex-col md:flex-row justify-between items-center gap-6 mb-16"
+        className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-8 mb-14"
       >
         {/* Logo */}
         <h1 className="text-2xl font-[var(--font-heading)] font-extrabold">
@@ -18,85 +18,62 @@ export default function Footer() {
         </h1>
 
         {/* Buttons */}
-        <div className="flex gap-4 flex-wrap">
+        <div className="flex flex-col sm:flex-row gap-4 w-full lg:w-auto">
+          {/* BUY TICKETS */}
           <motion.button
-            className="relative overflow-hidden cursor-pointer mt-8 px-6 py-4 uppercase text-md font-bold tracking-wider  text-white
-             bg-[linear-gradient(to_right,var(--color-gradient-left),var(--color-gradient-right))]
-              shadow-[var(--shadow-glow)]"
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            className="relative overflow-hidden px-6 py-4 uppercase text-sm sm:text-md font-bold tracking-wider text-white
+            bg-[linear-gradient(to_right,var(--color-gradient-left),var(--color-gradient-right))]
+            shadow-[var(--shadow-glow)] w-full sm:w-auto"
             whileHover="hover"
           >
-            {/*  White rotating layer (hidden initially) */}
             <motion.span
               className="absolute inset-0 bg-white z-10 origin-center"
               initial={{ rotate: -90, scale: 0 }}
-              variants={{
-                hover: {
-                  rotate: 0,
-                  scale: 1,
-                },
-              }}
-              transition={{ duration: 0.5, ease: "easeInOut" }}
+              variants={{ hover: { rotate: 0, scale: 1 } }}
+              transition={{ duration: 0.5 }}
             />
-
-            {/*  Text */}
             <motion.span
               className="relative z-20"
-              variants={{
-                hover: { color: "#000" },
-              }}
-              transition={{ duration: 0.3 }}
+              variants={{ hover: { color: "#000000" } }}
             >
-              <h2> BUY TICKETS</h2>
+              BUY TICKETS
             </motion.span>
           </motion.button>
+
+          {/* CONTACT */}
           <motion.button
-            className="relative overflow-hidden mt-8 px-6 py-3 border border-white uppercase text-md font-bold tracking-wider  text-white
-             bg-transparent cursor-pointer"
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            className="relative overflow-hidden px-6 py-4 border border-white uppercase text-sm sm:text-md font-bold tracking-wider text-white
+            bg-transparent w-full sm:w-auto"
             whileHover="hover"
           >
-            {/*  White rotating layer (hidden initially) */}
             <motion.span
               className="absolute inset-0 bg-white z-10 origin-center"
               initial={{ rotate: -90, scale: 0 }}
-              variants={{
-                hover: {
-                  rotate: 0,
-                  scale: 1,
-                },
-              }}
-              transition={{ duration: 0.5, ease: "easeInOut" }}
+              variants={{ hover: { rotate: 0, scale: 1 } }}
+              transition={{ duration: 0.5 }}
             />
-
-            {/*  Text */}
             <motion.span
               className="relative z-20"
-              variants={{
-                hover: { color: "#000" },
-              }}
-              transition={{ duration: 0.3 }}
+              initial={{ color: "#ffffff" }}
+              variants={{ hover: { color: "#000000" } }}
             >
-              <h2> CONTACT US</h2>
+              CONTACT US
             </motion.span>
           </motion.button>
         </div>
       </motion.div>
 
-      {/* Divider */}
-      <div className="border-t border-white/10 mb-16"></div>
+      {/* DIVIDER */}
+      <div className="border-t border-white/10 mb-14" />
 
-      {/* Grid Section */}
-      <div className="grid md:grid-cols-4 gap-10">
-        {/* Upcoming Events */}
+      {/* MAIN GRID */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
+        {/* EVENTS */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
         >
-          <h3 className="font-[var(--font-heading)] mb-6 uppercase text-sm tracking-widest">
+          <h3 className="mb-6 uppercase text-sm tracking-widest">
             Upcoming Events
           </h3>
 
@@ -105,25 +82,22 @@ export default function Footer() {
             { name: "Neon Nights", date: "Aug 24, 2023" },
             { name: "DJ Paul Freedman", date: "Jul 22, 2023" },
           ].map((event, i) => (
-            <div key={i} className="mb-6 border-b border-white/10 pb-4">
+            <div key={i} className="mb-5 border-b border-white/10 pb-4">
               <h3 className="font-semibold">{event.name}</h3>
               <p className="text-gray-400 text-sm">{event.date}</p>
-              <h4 className="text-[var(--color-primary)] text-md mt-1 cursor-pointer">
+              <p className="text-[var(--color-primary)] text-sm mt-1 cursor-pointer">
                 Buy Tickets →
-              </h4>
+              </p>
             </div>
           ))}
         </motion.div>
 
-        {/* Pages */}
+        {/* PAGES */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.1 }}
         >
-          <h3 className="font-[var(--font-heading)] mb-6 uppercase text-sm tracking-widest">
-            Pages
-          </h3>
+          <h3 className="mb-6 uppercase text-sm tracking-widest">Pages</h3>
 
           {["Home", "About", "Events", "Blog", "Tickets"].map((item, i) => (
             <p
@@ -135,13 +109,12 @@ export default function Footer() {
           ))}
         </motion.div>
 
-        {/* Utility Pages */}
+        {/* UTILITY */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
         >
-          <h3 className="font-[var(--font-heading)] mb-6 uppercase text-sm tracking-widest">
+          <h3 className="mb-6 uppercase text-sm tracking-widest">
             Utility Pages
           </h3>
 
@@ -156,28 +129,24 @@ export default function Footer() {
             ),
           )}
 
-          <h3 className="text-[var(--color-primary)] mt-4 text-lg cursor-pointer">
+          <p className="text-[var(--color-primary)] mt-4 cursor-pointer">
             More Templates →
-          </h3>
+          </p>
         </motion.div>
 
-        {/* Instagram */}
+        {/* INSTAGRAM */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.3 }}
         >
-          <h3 className="font-[var(--font-heading)] mb-6 uppercase text-sm tracking-widest">
-            Follow us on Instagram
-          </h3>
+          <h3 className="mb-6 uppercase text-sm tracking-widest">Instagram</h3>
 
           <div className="grid grid-cols-2 gap-3">
             {[
-              "https://images.unsplash.com/photo-1582103287241-2762adba6c36?q=80&w=387&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-              "https://images.unsplash.com/photo-1600102975337-e66752d32557?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-
-              "https://images.unsplash.com/photo-1600102975337-e66752d32557?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-              "https://images.unsplash.com/photo-1615212863630-1691e4c99c15?q=80&w=387&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+              "https://images.unsplash.com/photo-1582103287241-2762adba6c36",
+              "https://images.unsplash.com/photo-1600102975337-e66752d32557",
+              "https://images.unsplash.com/photo-1615212863630-1691e4c99c15",
+              "https://images.unsplash.com/photo-1600102975337-e66752d32557",
             ].map((img, i) => (
               <div key={i} className="overflow-hidden group">
                 <img

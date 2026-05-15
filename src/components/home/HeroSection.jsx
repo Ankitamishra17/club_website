@@ -155,7 +155,7 @@ export default function HeroSection() {
           {/* Buttons */}
           <div className="mt-6 flex flex-col sm:flex-row gap-4">
             <motion.button
-              className="relative overflow-hidden cursor-pointer mt-4  lg:mt-8 px-8 py-4 uppercase text-sm font-bold tracking-wider text-white
+              className="relative overflow-hidden cursor-pointer mt-4  lg:mt-8 px-8 py-4 uppercase text-base font-bold tracking-wider text-white
               bg-[linear-gradient(to_right,var(--color-gradient-left),var(--color-gradient-right))]
               shadow-[var(--shadow-glow)]"
               initial={{ opacity: 0, y: 40 }}
@@ -173,12 +173,12 @@ export default function HeroSection() {
                 className="relative z-20"
                 variants={{ hover: { color: "#000" } }}
               >
-                BUY TICKETS
+                <h2>BUY TICKETS</h2>
               </motion.span>
             </motion.button>
 
             <motion.button
-              className="relative overflow-hidden cursor-pointer mt-4  lg:mt-8 px-8 py-4 uppercase text-sm font-bold tracking-wider text-white
+              className="relative overflow-hidden cursor-pointer mt-4  lg:mt-8 px-8 py-4 uppercase text-base font-bold tracking-wider text-white
               bg-transparent border border-white"
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -195,7 +195,7 @@ export default function HeroSection() {
                 className="relative z-20"
                 variants={{ hover: { color: "#000" } }}
               >
-                WATCH VIDEOS
+                <h2> WATCH VIDEOS</h2>
               </motion.span>
             </motion.button>
           </div>

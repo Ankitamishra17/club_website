@@ -53,7 +53,7 @@ export default function Services() {
 
         {/* Button */}
         <motion.button
-          className="relative overflow-hidden mt-8 px-6 py-4 cursor-pointer whitespace-nowrap uppercase text-xl font-bold tracking-wider  text-white
+          className="relative overflow-hidden mt-8 px-6 py-4 cursor-pointer whitespace-nowrap uppercase text-base font-bold tracking-wider  text-white
                     bg-[linear-gradient(to_right,var(--color-gradient-left),var(--color-gradient-right))]
                      shadow-[var(--shadow-glow)]"
           initial={{ opacity: 0, y: 40 }}

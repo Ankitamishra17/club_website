@@ -15,8 +15,9 @@
   --shadow-glow: 0 0 14px 0 #f4207b59;
 }
 
-body {
-  overflow-x: hidden;
+html,body{
+    overflow-x: hidden;
+
 }
 
 @layer utilities {

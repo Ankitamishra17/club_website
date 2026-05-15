@@ -39,7 +39,7 @@ export default function Gallery() {
 
           {/* {button} */}
           <motion.button
-            className="relative overflow-hidden mt-8 px-8 py-4 cursor-pointer uppercase text-sm font-bold tracking-wider  text-white
+            className="relative overflow-hidden mt-8 px-8 py-4 cursor-pointer uppercase text-base font-bold tracking-wider  text-white
              bg-[linear-gradient(to_right,var(--color-gradient-left),var(--color-gradient-right))]
               shadow-[var(--shadow-glow)]"
             initial={{ opacity: 0, y: 40 }}
@@ -67,7 +67,7 @@ export default function Gallery() {
               }}
               transition={{ duration: 0.3 }}
             >
-              BUY TICKETS
+              <h2>BUY TICKETS</h2>
             </motion.span>
           </motion.button>
         </motion.div>

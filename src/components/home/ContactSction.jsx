@@ -52,9 +52,9 @@ export default function Visit() {
             // viewport={{ once: false }}
             className="font-[var(--font-heading)] text-4xl md:text-6xl font-extrabold mt-4"
           >
-           COME & VISIT{" "}
+            COME & VISIT{" "}
             <span className="text-transparent [-webkit-text-stroke:1px_white]">
-             OUR CLUB 
+              OUR CLUB
             </span>
           </motion.h2>
           {/* <p className="uppercase tracking-widest text-xl text-[var(--color-primary)]">
@@ -71,7 +71,7 @@ export default function Visit() {
           {/* Buttons */}
           <div className="flex gap-4 mt-8 flex-wrap">
             <motion.button
-              className="relative overflow-hidden mt-8 px-8 py-4 cursor-pointer uppercase text-sm font-bold tracking-wider  text-white
+              className="relative overflow-hidden mt-8 px-8 py-4 cursor-pointer uppercase text-base font-bold tracking-wider  text-white
              bg-[linear-gradient(to_right,var(--color-gradient-left),var(--color-gradient-right))]
               shadow-[var(--shadow-glow)]"
               initial={{ opacity: 0, y: 40 }}
@@ -99,12 +99,12 @@ export default function Visit() {
                 }}
                 transition={{ duration: 0.3 }}
               >
-                BUY TICKETS
+                <h1> BUY TICKETS</h1>
               </motion.span>
             </motion.button>
 
             <motion.button
-              className="relative   border border-white overflow-hidden mt-8 px-8 py-4 cursor-pointer uppercase text-sm font-bold tracking-wider  text-white
+              className="relative   border border-white overflow-hidden mt-8 px-8 py-4 cursor-pointer uppercase text-base font-bold tracking-wider  text-white
              bg-transparent"
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -123,7 +123,7 @@ export default function Visit() {
                 transition={{ duration: 0.5, ease: "easeInOut" }}
               />
 
-              {/* 🔤 Text */}
+              {/*  Text */}
               <motion.span
                 className="relative z-20"
                 variants={{
@@ -131,7 +131,7 @@ export default function Visit() {
                 }}
                 transition={{ duration: 0.3 }}
               >
-                CONTACT US
+                <h2>CONTACT US</h2>
               </motion.span>
             </motion.button>
           </div>
@@ -146,7 +146,7 @@ export default function Visit() {
         >
           {/* Address */}
           <div className="flex gap-4 items-start mb-6">
-            <MapPin className="text-[var(--color-primary)]" />
+            <MapPin className="text-[var(--color-primary)] text-3xl" />
             <p className="text-gray-300">
               943-951 N. Broadway Los Angeles, CA 90012, United States
             </p>
