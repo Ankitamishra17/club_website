@@ -6,22 +6,22 @@ import { motion, AnimatePresence } from "framer-motion";
 const testimonials = [
   {
     text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    name: "LILY WOODS",
-    location: "MIAMI, FL",
+    name: "Ruchi",
+    location: "Delhi",
     image:
       "https://images.pexels.com/photos/29650433/pexels-photo-29650433.jpeg",
   },
   {
     text: "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-    name: "JAMES SMITH",
-    location: "NEW YORK, NY",
+    name: "Vivek",
+    location: "Greater Noida",
     image:
       "https://images.pexels.com/photos/19641136/pexels-photo-19641136.jpeg",
   },
   {
     text: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
-    name: "SOPHIA LEE",
-    location: "LOS ANGELES, CA",
+    name: "Richa",
+    location: "Noida",
     image:
       "https://images.pexels.com/photos/29068093/pexels-photo-29068093.jpeg",
   },

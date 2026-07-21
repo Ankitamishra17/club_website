@@ -118,7 +118,7 @@ export default function Footer() {
             Utility Pages
           </h3>
 
-          {["Start Here", "Style Guide", "404 Page", "Licenses"].map(
+          {["Start Here", "Style Guide",  "Licenses"].map(
             (item, i) => (
               <p
                 key={i}

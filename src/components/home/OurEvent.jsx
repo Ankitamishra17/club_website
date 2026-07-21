@@ -1,7 +1,7 @@
-
 "use client";
 
 import { motion } from "framer-motion";
+import { ArrowUpRight } from "lucide-react";
 
 const events = [
   {
@@ -27,43 +27,92 @@ const events = [
   },
 ];
 
-export default function Events() {
+function EventCard({ event, big }) {
   return (
-    <section className="bg-[var(--color-dark)] text-white py-24 px-6 md:px-16">
-      
-      {/*  Heading with LEFT LINE ANIMATION */}
-      <div className="text-center mb-16 flex flex-col items-center">
-        
-        <div className="flex items-center gap-4">
-          
+    <motion.div
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.6 }}
+      whileTap={{ scale: 0.98 }}
+      className={`group relative overflow-hidden cursor-pointer w-full ${
+        big
+          ? "aspect-[4/5] sm:aspect-[16/10] lg:aspect-auto lg:h-full"
+          : "aspect-[16/10] lg:aspect-auto lg:h-full"
+      }`}
+    >
+      <img
+        src={event.image}
+        alt=""
+        className="w-full h-full object-cover transition duration-500 group-hover:scale-110 group-active:scale-105"
+      />
 
-          {/* TEXT */}
-          <h2 className="text-[var(--color-primary)] uppercase tracking-widest text-xl relative inline-block">
-           <motion.p
-            initial={{ opacity: 0, x: -40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5 }}
-            // viewport={{ once: false }}
-            className="text-[var(--color-primary)] uppercase tracking-widest text-xl font-semibold"
+      <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
+
+      <div
+        className={`absolute inset-x-0 bottom-0 flex items-end justify-between gap-4 ${
+          big ? "p-6 lg:p-8" : "p-5"
+        }`}
+      >
+        <div>
+          <p
+            className={`font-bold text-[var(--color-primary)] tracking-wide ${
+              big ? "text-sm" : "text-xs"
+            }`}
           >
-            Our Events
-          </motion.p>
-            <motion.span
-              className="absolute left-0 -bottom-1 h-[1px] bg-[var(--color-primary)]"
-              initial={{ width: 0 }}
-              whileInView={{ width: "100%" }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-            />
-          </h2>
+            {event.date}
+          </p>
+          <h3
+            className={`font-[var(--font-heading)] font-bold mt-2 leading-tight ${
+              big ? "text-3xl sm:text-4xl" : "text-xl sm:text-2xl"
+            }`}
+          >
+            {event.title}
+          </h3>
+          {event.desc && (
+            <p className="mt-2 text-sm text-gray-300 max-w-md">{event.desc}</p>
+          )}
         </div>
 
-        {/* BIG TITLE */}
-        <motion.h2
-          initial={{ opacity: 0, y: 40 }}
+        <span
+          className="shrink-0 w-10 h-10 flex items-center justify-center border border-white/25 text-white
+          transition-all duration-300 group-hover:bg-[var(--color-primary)] group-hover:border-[var(--color-primary)] group-hover:rotate-45"
+        >
+          <ArrowUpRight size={18} />
+        </span>
+      </div>
+    </motion.div>
+  );
+}
+
+export default function Events() {
+  return (
+    <section className="bg-[var(--color-dark)] text-white py-20 md:py-28 px-6 md:px-16">
+      {/* Heading */}
+      <div className="text-center mb-14 md:mb-16 flex flex-col items-center">
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: false }}
-          className="font-[var(--font-heading)] text-4xl md:text-6xl font-extrabold mt-4"
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="text-[var(--color-primary)] uppercase tracking-widest text-sm sm:text-base font-semibold relative inline-block"
+        >
+          Our Events
+          <motion.span
+            className="absolute left-0 -bottom-1 h-[1px] bg-[var(--color-primary)]"
+            initial={{ width: 0 }}
+            whileInView={{ width: "100%" }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.25 }}
+          />
+        </motion.p>
+
+        <motion.h2
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+          className="font-[var(--font-heading)] text-4xl sm:text-5xl md:text-6xl font-extrabold mt-5"
         >
           UPCOMING{" "}
           <span className="text-transparent [-webkit-text-stroke:1px_white]">
@@ -72,62 +121,13 @@ export default function Events() {
         </motion.h2>
       </div>
 
-      {/* Layout */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 h-[700px]">
-        
-        {/* LEFT BIG */}
-        <motion.div
-          initial={{ opacity: 0, y: 80 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: false }}
-          className="relative overflow-hidden group h-full"
-        >
-          <img
-            src={events[0].image}
-            alt=""
-            className="w-full h-full object-cover group-hover:scale-110 transition duration-500"
-          />
+      {/* Layout — natural stacking on mobile/tablet, fixed-height bento on desktop */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-6 lg:h-[640px]">
+        <EventCard event={events[0]} big />
 
-          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent" />
-
-          <div className="absolute bottom-6 left-6 right-6">
-            <p className="text-sm font-bold text-white">{events[0].date}</p>
-            <h3 className="text-4xl font-bold mt-2">
-              {events[0].title}
-            </h3>
-            <p className="mt-2 text-sm max-w-md">{events[0].desc}</p>
-          </div>
-        </motion.div>
-
-        {/* RIGHT SIDE */}
-        <div className="grid grid-rows-2 gap-6 h-full">
-          
-          {[1, 2].map((i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 80 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: i * 0.2 }}
-              viewport={{ once: false }}
-              className="relative overflow-hidden group"
-            >
-              <img
-                src={events[i].image}
-                alt=""
-                className="w-full h-full object-cover group-hover:scale-110 transition duration-500"
-              />
-
-              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent" />
-
-              <div className="absolute bottom-4 left-4">
-                <p className="text-sm font-bold">{events[i].date}</p>
-                <h3 className="text-2xl font-bold mt-1">
-                  {events[i].title}
-                </h3>
-              </div>
-            </motion.div>
-          ))}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 lg:grid-rows-2 gap-4 md:gap-6 lg:h-full">
+          <EventCard event={events[1]} />
+          <EventCard event={events[2]} />
         </div>
       </div>
     </section>

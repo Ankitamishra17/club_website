@@ -17,54 +17,44 @@ export default function Navbar() {
   ];
 
   return (
-    <nav className="fixed top-0 left-0 w-full z-50 backdrop-blur-md bg-black/30 border-b border-white/10">
+    <nav className="fixed top-0 left-0 w-full z-50  bg-black/30 border-b border-white/10">
       <div className="flex items-center justify-between px-6 md:px-12 py-4">
         {/* Logo */}
         <Link href="/">
-          <h1 className="font-[var(--font-heading)] text-xl md:text-sm lg:text-xl  tracking-wider cursor-pointer">
+          <h1 className="font-[var(--font-heading)] text-xl lg:text-xl tracking-wider cursor-pointer">
             <span className="text-[var(--color-primary)]">Y</span> CLUB X
           </h1>
         </Link>
 
-        {/* Desktop Menu */}
-        <div className="hidden md:flex items-center gap-10 text-md">
+        {/* Desktop Menu — now lg+ only, so tablets get the hamburger */}
+        <div className="hidden lg:flex items-center gap-10 text-md">
           {links.map((link, i) => (
             <Link key={i} href={link.path} className="relative group">
-              <h2> {link.name}</h2>
+              <h2>{link.name}</h2>
               <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-[var(--color-primary)] transition-all group-hover:w-full"></span>
             </Link>
           ))}
         </div>
 
         {/* Button */}
-        <div className="hidden md:block">
+        <div className="hidden lg:block">
           <motion.button
-            className="relative overflow-hidden mt-2 px-6 md:px-2 py-3 cursor-pointer uppercase text-md font-bold tracking-wider  text-white
+            className="relative overflow-hidden mt-2 px-6 py-3 cursor-pointer uppercase text-md font-bold tracking-wider text-white
              bg-[linear-gradient(to_right,var(--color-gradient-left),var(--color-gradient-right))]
               shadow-[var(--shadow-glow)]"
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             whileHover="hover"
           >
-            {/*  White rotating layer (hidden initially) */}
             <motion.span
               className="absolute inset-0 bg-white z-10 origin-center"
               initial={{ rotate: -90, scale: 0 }}
-              variants={{
-                hover: {
-                  rotate: 0,
-                  scale: 1,
-                },
-              }}
+              variants={{ hover: { rotate: 0, scale: 1 } }}
               transition={{ duration: 0.5, ease: "easeInOut" }}
             />
-
-            {/*  Text */}
             <motion.span
               className="relative z-20"
-              variants={{
-                hover: { color: "#000" },
-              }}
+              variants={{ hover: { color: "#000" } }}
               transition={{ duration: 0.3 }}
             >
               <h2>BUY TICKETS</h2>
@@ -72,47 +62,71 @@ export default function Navbar() {
           </motion.button>
         </div>
 
-        {/* Mobile Menu Icon */}
-        <button className="md:hidden" onClick={() => setOpen(!open)}>
+        {/* Mobile/Tablet Menu Icon — visible below lg */}
+        <button
+          className="lg:hidden relative z-[60]"
+          onClick={() => setOpen(!open)}
+          aria-label={open ? "Close menu" : "Open menu"}
+        >
           {open ? <X /> : <Menu />}
         </button>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile/Tablet Drawer — slides in from the right */}
       <AnimatePresence>
         {open && (
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.3 }}
-            className="md:hidden bg-black/90 backdrop-blur-md px-6 py-6 space-y-6"
-          >
-            {links.map((link, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: i * 0.1 }}
-              >
-                <Link
-                  href={link.path}
-                  onClick={() => setOpen(false)} // close menu after click
-                  className="block text-lg font-[var(--font-heading)]"
-                >
-                  {link.name}
-                </Link>
-              </motion.div>
-            ))}
+          <>
+            {/* Backdrop */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.3 }}
+              onClick={() => setOpen(false)}
+              className="lg:hidden fixed inset-0 bg-black/60 backdrop-blur-sm z-40"
+            />
 
-            <button
-              className="w-full mt-4 px-6 py-3 font-bold uppercase
-              bg-[linear-gradient(to_right,var(--color-gradient-left),var(--color-gradient-right))]
-              shadow-[var(--shadow-glow)]"
+            {/* Drawer panel */}
+            <motion.div
+              initial={{ x: "100%" }}
+              animate={{ x: 0 }}
+              exit={{ x: "100%" }}
+              transition={{ duration: 0.4, ease: "easeInOut" }}
+              className="lg:hidden fixed top-0 right-0 h-full w-[80%] sm:w-80 bg-black/95 backdrop-blur-md
+              border-l border-white/10 z-50 px-8 pt-24 pb-10 flex flex-col"
             >
-              Buy Tickets
-            </button>
-          </motion.div>
+              <div className="flex flex-col gap-6">
+                {links.map((link, i) => (
+                  <motion.div
+                    key={i}
+                    initial={{ opacity: 0, x: 20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: i * 0.08 }}
+                  >
+                    <Link
+                      href={link.path}
+                      onClick={() => setOpen(false)}
+                      className="block text-lg font-[var(--font-heading)] tracking-wide"
+                    >
+                      {link.name}
+                    </Link>
+                  </motion.div>
+                ))}
+              </div>
+
+              <motion.button
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: links.length * 0.08 }}
+                onClick={() => setOpen(false)}
+                className="w-full mt-auto px-6 py-3 font-bold uppercase text-white
+                bg-[linear-gradient(to_right,var(--color-gradient-left),var(--color-gradient-right))]
+                shadow-[var(--shadow-glow)]"
+              >
+                Buy Tickets
+              </motion.button>
+            </motion.div>
+          </>
         )}
       </AnimatePresence>
     </nav>
