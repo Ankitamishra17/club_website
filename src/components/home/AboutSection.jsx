@@ -6,15 +6,7 @@ import { ArrowUpRight } from "lucide-react";
 export default function About() {
   return (
     <section className="relative bg-[var(--color-dark)] text-white py-24 md:py-32 px-6 md:px-12 lg:px-20 overflow-hidden">
-      {/* Watermark */}
-      <span
-        aria-hidden
-        className="pointer-events-none select-none absolute top-10 md:top-16 left-1/2 -translate-x-1/2 lg:left-auto lg:right-0 lg:translate-x-0
-        font-[var(--font-heading)] font-extrabold text-[22vw] lg:text-[11rem] leading-none
-        text-transparent [-webkit-text-stroke:1px_rgba(255,255,255,0.06)] whitespace-nowrap"
-      >
-        ABOUT US
-      </span>
+      
 
       <div className="max-w-7xl mx-auto relative">
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-10 items-center">
@@ -138,7 +130,7 @@ export default function About() {
             </div>
 
             {/* Glass card — inline on mobile, overlapping on desktop */}
-            <motion.div
+            {/* <motion.div
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -150,7 +142,7 @@ export default function About() {
                 laboris nisi ut aliquip ex ea commodo consequat excepteur sint
                 occaecat cupidatat non proident.
               </p>
-            </motion.div>
+            </motion.div> */}
           </div>
         </div>
 
