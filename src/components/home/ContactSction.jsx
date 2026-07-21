@@ -148,7 +148,7 @@ export default function Visit() {
           <div className="flex gap-4 items-start mb-6">
             <MapPin className="text-[var(--color-primary)] text-3xl" />
             <p className="text-gray-300">
-              943-951 N. Broadway Los Angeles, CA 90012, United States
+              Greater Noida ,Uttar Pradesh
             </p>
           </div>
 
@@ -161,7 +161,7 @@ export default function Visit() {
           {/* Phone */}
           <div className="flex gap-4 items-center">
             <Phone className="text-[var(--color-primary)]" />
-            <p className="text-gray-300">+91 (414) 857 - 0107</p>
+            <p className="text-gray-300">+91 9999999999</p>
           </div>
         </motion.div>
       </div>

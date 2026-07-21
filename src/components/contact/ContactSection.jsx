@@ -36,20 +36,20 @@ export default function VisitSection() {
             <div className="flex items-start gap-4">
               <MapPin className="text-[var(--color-primary)] mt-1" />
               <p className="text-gray-300">
-                943-951 N. Broadway Los Angeles, CA 90012, United States
+                Greater Noida
               </p>
             </div>
 
             {/* EMAIL */}
             <div className="flex items-center gap-4">
               <Mail className="text-[var(--color-primary)]" />
-              <p className="text-gray-300">losangeles@club.com</p>
+              <p className="text-gray-300">info@club.com</p>
             </div>
 
             {/* PHONE */}
             <div className="flex items-center gap-4">
               <Phone className="text-[var(--color-primary)]" />
-              <p className="text-gray-300">+1 (414) 857 - 0107</p>
+              <p className="text-gray-300">+91 9999999999</p>
             </div>
           </div>
         </motion.div>
