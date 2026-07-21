@@ -7,7 +7,7 @@ const events = [
   {
     date: "AUG 25, 2023",
     title: "DJ DOMINIQUE",
-    desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.",
+    desc: "",
     image:
       "https://images.pexels.com/photos/13112765/pexels-photo-13112765.jpeg",
   },
