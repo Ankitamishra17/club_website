@@ -2,6 +2,9 @@
 
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
+import Link from "next/link"
+
+const MotionLink = motion(Link)
 
 export default function About() {
   return (
@@ -60,13 +63,14 @@ export default function About() {
               cupidatat non.
             </motion.p>
 
-            <motion.button
+            <MotionLink
+              href="/about"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.4 }}
               whileHover="hover"
-              whileTap={{ scale: 0.97 }}
+              
               className="group relative overflow-hidden mt-9 px-8 py-4 cursor-pointer uppercase text-sm font-bold tracking-wider text-white
               bg-[linear-gradient(to_right,var(--color-gradient-left),var(--color-gradient-right))]
               shadow-[var(--shadow-glow)] flex items-center gap-2"
@@ -88,7 +92,7 @@ export default function About() {
                   className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
                 />
               </motion.span>
-            </motion.button>
+            </MotionLink>
           </motion.div>
 
           {/* RIGHT SIDE — RESPONSIVE COLLAGE */}

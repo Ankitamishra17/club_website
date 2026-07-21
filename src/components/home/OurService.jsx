@@ -3,6 +3,9 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Calendar, Star, Martini, Disc3, ArrowUpRight } from "lucide-react";
+import Link from "next/link";
+
+const MotionLink = motion(Link);
 
 const services = [
   {
@@ -67,27 +70,28 @@ export default function Services() {
           </motion.h2>
         </div>
 
-        <motion.button
+        <MotionLink
+          href="/contact"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.3 }}
           whileHover="hover"
-          whileTap={{ scale: 0.97 }}
-          className="group relative overflow-hidden px-6 py-4 cursor-pointer whitespace-nowrap uppercase text-sm font-bold tracking-wider text-white
+          whileTap="hover"
+          className="group relative overflow-hidden px-6 py-4 cursor-pointer whitespace-nowrap uppercase text-sm font-bold tracking-wider text-white inline-flex
           bg-[linear-gradient(to_right,var(--color-gradient-left),var(--color-gradient-right))]
-          shadow-[var(--shadow-glow)] flex items-center gap-2 shrink-0"
+          shadow-[var(--shadow-glow)] items-center gap-2 shrink-0"
         >
           <motion.span
             className="absolute inset-0 bg-white z-10 origin-center"
             initial={{ rotate: -90, scale: 0 }}
             variants={{ hover: { rotate: 0, scale: 1 } }}
-            transition={{ duration: 0.5, ease: "easeInOut" }}
+            transition={{ duration: 0.35, ease: "easeOut" }}
           />
           <motion.span
             className="relative z-20 flex items-center gap-2"
             variants={{ hover: { color: "#000" } }}
-            transition={{ duration: 0.3 }}
+            transition={{ duration: 0.2 }}
           >
             Buy tickets
             <ArrowUpRight
@@ -95,7 +99,7 @@ export default function Services() {
               className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
             />
           </motion.span>
-        </motion.button>
+        </MotionLink>
       </div>
 
       {/* Numbered list */}

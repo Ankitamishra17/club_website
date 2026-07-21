@@ -103,15 +103,15 @@ export default function Visit() {
               </motion.span>
             </motion.button>
 
-            <motion.button
+            {/* <motion.button
               className="relative   border border-white overflow-hidden mt-8 px-8 py-4 cursor-pointer uppercase text-base font-bold tracking-wider  text-white
              bg-transparent"
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               whileHover="hover"
-            >
+            > */}
               {/*  White rotating layer (hidden initially) */}
-              <motion.span
+              {/* <motion.span
                 className="absolute inset-0 bg-white z-10 origin-center"
                 initial={{ rotate: -90, scale: 0 }}
                 variants={{
@@ -121,10 +121,10 @@ export default function Visit() {
                   },
                 }}
                 transition={{ duration: 0.5, ease: "easeInOut" }}
-              />
+              /> */}
 
               {/*  Text */}
-              <motion.span
+              {/* <motion.span
                 className="relative z-20"
                 variants={{
                   hover: { color: "#000" },
@@ -132,8 +132,8 @@ export default function Visit() {
                 transition={{ duration: 0.3 }}
               >
                 <h2>CONTACT US</h2>
-              </motion.span>
-            </motion.button>
+              </motion.span> */}
+            {/* </motion.button> */}
           </div>
         </motion.div>
 

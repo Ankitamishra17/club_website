@@ -1,29 +1,14 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Link from "next/link"
+
+const MotionLink = motion (Link)
 
 export default function WatchVideo() {
   return (
     <section className="bg-[var(--color-dark)] text-white py-24 px-6 md:px-16">
-      {/* Heading */}
-      {/* <div className="text-center mb-16 max-w-4xl mx-auto">
-        <p className="text-[var(--color-primary)] uppercase tracking-widest text-sm font-semibold">
-          WATCH OUR VIDEO
-        </p>
-
-        <h2 className="font-[var(--font-heading)] text-4xl md:text-6xl font-extrabold mt-4 leading-tight">
-          A NIGHT AT{" "}
-          <span className="text-transparent [-webkit-text-stroke:1px_white]">
-            CLUB X
-          </span>
-        </h2>
-
-        <p className="font-[var(--font-body)] text-sm md:text-lg text-gray-400 mt-6 leading-relaxed">
-          Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi
-          ut aliquip ex ea commodo consequat excepteur sint occaecat cupidatat
-          non.
-        </p>
-      </div> */}
+     
 
       <div className="text-center mb-16 flex flex-col items-center">
         <div className="flex items-center gap-4">
@@ -82,7 +67,8 @@ export default function WatchVideo() {
 
       {/* Button */}
       <div className="flex justify-center mt-12">
-        <motion.button
+        <MotionLink
+        href = "/gallery"
           className="relative overflow-hidden mt-8 px-6 py-4 cursor-pointer uppercase text-md font-bold tracking-wider  text-white
              bg-[linear-gradient(to_right,var(--color-gradient-left),var(--color-gradient-right))]
               shadow-[var(--shadow-glow)]"
@@ -111,9 +97,9 @@ export default function WatchVideo() {
             }}
             transition={{ duration: 0.3 }}
           >
-            <h2>BUY TICKETS</h2>
+            <h2>VIEW MORE VIDEOS</h2>
           </motion.span>
-        </motion.button>
+        </MotionLink>
       </div>
     </section>
   );
