@@ -12,7 +12,7 @@ export default function OurStorySection() {
           initial={{ opacity: 0, x: -80 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8 }}
-          className="relative group"
+          className="relative group order-2 md:order-1"
         >
           {/* image */}
           <Image
@@ -20,7 +20,7 @@ export default function OurStorySection() {
             alt="Club Story"
             width={600}
             height={700}
-            className=" object-cover w-full h-[500px]"
+            className="object-cover w-full h-[500px]"
           />
 
           {/* glow effect */}
@@ -38,6 +38,7 @@ export default function OurStorySection() {
           initial={{ opacity: 0, x: 80 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8 }}
+          className="order-1 md:order-2 mb-8 md:mb-0"
         >
           {/* small heading */}
           <h2 className="text-[var(--color-primary)] uppercase tracking-widest text-md relative inline-block">
@@ -65,8 +66,6 @@ export default function OurStorySection() {
             with music and entertainment, CHICANE SPORTS BAR is more than just a
             venue—it's a place where unforgettable memories are made.
           </p>
-
-          
         </motion.div>
       </div>
     </section>

@@ -10,7 +10,7 @@ export default function HeroSection() {
         className="min-h-screen bg-cover bg-center relative"
         style={{
           backgroundImage:
-            "url('https://images.pexels.com/photos/5192299/pexels-photo-5192299.jpeg')",
+            "url('https://images.pexels.com/photos/8448581/pexels-photo-8448581.jpeg')",
         }}
       >
         {/* DARK OVERLAY */}

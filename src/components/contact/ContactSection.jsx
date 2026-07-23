@@ -44,7 +44,7 @@ export default function VisitSection() {
             {/* EMAIL */}
             <div className="flex items-center gap-4">
               <Mail className="text-[var(--color-primary)]" />
-              <p className="text-gray-300">info@club.com</p>
+              <p className="text-gray-300">info@chicane.com</p>
             </div>
 
             {/* PHONE */}

@@ -23,7 +23,7 @@ export default function Footer() {
         <Link href="/">
           <div className="relative h-36 w-50 ">
             <Image
-              src="/logo.png"
+              src="/logo1.png"
               alt="Logo"
               fill
               priority
@@ -132,27 +132,30 @@ export default function Footer() {
           ))}
         </motion.div>
 
-        {/* UTILITY */}
+        {/* CONTACT */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
         >
-          <h3 className="mb-6 uppercase text-sm tracking-widest">
-            Utility Pages
-          </h3>
+          <h3 className="mb-6 uppercase text-sm tracking-widest">Contact</h3>
 
-          {["Start Here", "Style Guide", "Licenses"].map((item, i) => (
-            <p
-              key={i}
-              className="mb-3 text-gray-400 hover:text-white cursor-pointer transition"
-            >
-              {item}
-            </p>
-          ))}
-
-          <p className="text-[var(--color-primary)] mt-4 cursor-pointer">
-            More Templates →
+          <p className="text-gray-400 mb-4 leading-relaxed">
+            MODI MALL, A 205, above MODI MALL, Sector 25, Sector 25A, Noida,
+            Uttar Pradesh 201307
           </p>
+          <a
+            href="tel:+919810485884"
+            className="block text-gray-400 hover:text-white transition mb-2"
+          >
+            +91 9810485884
+          </a>
+
+          <a
+            href="mailto:info@chicane.com"
+            className="block text-gray-400 hover:text-white transition"
+          >
+            info@chicane.com
+          </a>
         </motion.div>
 
         {/* INSTAGRAM */}
@@ -163,7 +166,7 @@ export default function Footer() {
           <h3 className="mb-6 uppercase text-sm tracking-widest">Instagram</h3>
 
           <div className="grid grid-cols-2 gap-3">
-            {["/image8.webp", "/image9.jpg", "/image10.jpg", "image2.webp"].map(
+            {["/image8.webp", "/image9.jpg", "/image10.jpg", "image4.webp"].map(
               (img, i) => (
                 <div key={i} className="overflow-hidden group">
                   <img

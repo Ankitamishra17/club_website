@@ -30,10 +30,10 @@ const faqs = [
 ];
 
 export default function FAQSection() {
-  const [active, setActive] = useState(0);
+  const [active, setActive] = useState();
 
   return (
-    <section className="bg-[var(--color-dark)] text-white py-24 md:py-32 px-6 md:px-16">
+    <section className="bg-[var(--color-dark)] text-white py-20 md:py-32 px-6 md:px-16">
       {/* HEADER */}
       <motion.div
         initial={{ opacity: 0, y: 30 }}
@@ -42,7 +42,7 @@ export default function FAQSection() {
         transition={{ duration: 0.7 }}
         className="mb-16 md:mb-20 max-w-3xl"
       >
-        <p className="text-[var(--color-primary)] uppercase tracking-widest text-sm relative inline-block">
+        <p className="text-[var(--color-primary)]   uppercase tracking-widest text-sm relative inline-block">
           FAQ
           <motion.span
             className="absolute left-0 -bottom-1 h-[1px] bg-[var(--color-primary)]"

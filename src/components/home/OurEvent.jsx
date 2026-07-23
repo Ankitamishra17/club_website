@@ -23,7 +23,7 @@ const events = [
     title: "DJ PAUL FREEDMAN",
     desc: "",
     image:
-      "https://plus.unsplash.com/premium_photo-1683134058615-550b2d7c5381?q=80&w=870&auto=format&fit=crop",
+      "https://images.pexels.com/photos/3101520/pexels-photo-3101520.jpeg",
   },
 ];
 
