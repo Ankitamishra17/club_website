@@ -2,6 +2,7 @@ import { Cormorant_Garamond, Poppins } from "next/font/google";
 import "./globals.css";
 
 import ScrollToTop from "@/components/ScrollToTop";
+import CallNowButton from "@/components/CallNowButton";
 
 const carmorant = Cormorant_Garamond({
   variable: "--font-heading",
@@ -15,8 +16,8 @@ const inter = Poppins({
 });
 
 export const metadata = {
-  title: "Club X",
-  description: "Night club website",
+  title: "CHICANE SPORTS BAR",
+  description: " CHICANE SPORTS BAR WEBSITE",
 };
 
 export default function RootLayout({ children }) {
@@ -25,6 +26,7 @@ export default function RootLayout({ children }) {
       <body className="min-h-full flex flex-col font-body">
         <ScrollToTop />
         {children}
+        <CallNowButton/>
       </body>
     </html>
   );
