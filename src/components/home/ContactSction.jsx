@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Link from "next/link";
 import { MapPin, Mail, Phone } from "lucide-react";
 
 export default function Visit() {
@@ -57,83 +58,43 @@ export default function Visit() {
               OUR CLUB
             </span>
           </motion.h2>
-          {/* <p className="uppercase tracking-widest text-xl text-[var(--color-primary)]">
-            Visit Us
-          </p>
-
-          <h2 className="font-[var(--font-heading)] text-4xl md:text-6xl font-extrabold mt-4 leading-tight">
-            COME AND VISIT <br />
-            <span className="text-transparent [-webkit-text-stroke:1px_white]">
-              OUR CLUB
-            </span>
-          </h2> */}
 
           {/* Buttons */}
           <div className="flex gap-4 mt-8 flex-wrap">
-            <motion.button
-              className="relative overflow-hidden mt-8 px-8 py-4 cursor-pointer uppercase text-base font-bold tracking-wider  text-white
-             bg-[linear-gradient(to_right,var(--color-gradient-left),var(--color-gradient-right))]
-              shadow-[var(--shadow-glow)]"
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              whileHover="hover"
-            >
-              {/* White rotating layer (hidden initially) */}
-              <motion.span
-                className="absolute inset-0 bg-white z-10 origin-center"
-                initial={{ rotate: -90, scale: 0 }}
-                variants={{
-                  hover: {
-                    rotate: 0,
-                    scale: 1,
-                  },
-                }}
-                transition={{ duration: 0.5, ease: "easeInOut" }}
-              />
-
-              {/* Text */}
-              <motion.span
-                className="relative z-20"
-                variants={{
-                  hover: { color: "#000" },
-                }}
-                transition={{ duration: 0.3 }}
+            <Link href="/contact">
+              <motion.button
+                className="relative overflow-hidden mt-8 px-8 py-4 cursor-pointer uppercase text-base font-bold tracking-wider  text-white
+               bg-[linear-gradient(to_right,var(--color-gradient-left),var(--color-gradient-right))]
+                shadow-[var(--shadow-glow)]"
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                whileHover="hover"
               >
-                <h1> BUY TICKETS</h1>
-              </motion.span>
-            </motion.button>
+                {/* White rotating layer (hidden initially) */}
+                <motion.span
+                  className="absolute inset-0 bg-white z-10 origin-center"
+                  initial={{ rotate: -90, scale: 0 }}
+                  variants={{
+                    hover: {
+                      rotate: 0,
+                      scale: 1,
+                    },
+                  }}
+                  transition={{ duration: 0.5, ease: "easeInOut" }}
+                />
 
-            {/* <motion.button
-              className="relative   border border-white overflow-hidden mt-8 px-8 py-4 cursor-pointer uppercase text-base font-bold tracking-wider  text-white
-             bg-transparent"
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              whileHover="hover"
-            > */}
-              {/*  White rotating layer (hidden initially) */}
-              {/* <motion.span
-                className="absolute inset-0 bg-white z-10 origin-center"
-                initial={{ rotate: -90, scale: 0 }}
-                variants={{
-                  hover: {
-                    rotate: 0,
-                    scale: 1,
-                  },
-                }}
-                transition={{ duration: 0.5, ease: "easeInOut" }}
-              /> */}
-
-              {/*  Text */}
-              {/* <motion.span
-                className="relative z-20"
-                variants={{
-                  hover: { color: "#000" },
-                }}
-                transition={{ duration: 0.3 }}
-              >
-                <h2>CONTACT US</h2>
-              </motion.span> */}
-            {/* </motion.button> */}
+                {/* Text */}
+                <motion.span
+                  className="relative z-20"
+                  variants={{
+                    hover: { color: "#000" },
+                  }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <h1> BUY TICKETS</h1>
+                </motion.span>
+              </motion.button>
+            </Link>
           </div>
         </motion.div>
 
@@ -148,7 +109,8 @@ export default function Visit() {
           <div className="flex gap-4 items-start mb-6">
             <MapPin className="text-[var(--color-primary)] text-3xl" />
             <p className="text-gray-300">
-              Greater Noida ,Uttar Pradesh
+              MODI MALL, A 205, above MODI MALL, Sector 25, Sector 25A, Noida,
+              Uttar Pradesh 201307
             </p>
           </div>
 
@@ -161,7 +123,12 @@ export default function Visit() {
           {/* Phone */}
           <div className="flex gap-4 items-center">
             <Phone className="text-[var(--color-primary)]" />
-            <p className="text-gray-300">+91 9999999999</p>
+            <a
+              href="tel:+919810485884"
+              className="text-gray-300 hover:text-[var(--color-primary)] transition"
+            >
+              +91 9810485884
+            </a>
           </div>
         </motion.div>
       </div>

@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
 
 const events = [
   {
@@ -135,38 +136,40 @@ export default function UpcomingEvents() {
               <Countdown targetDate={event.date} />
 
               {/* BUTTON */}
-              <motion.button
-                className="relative overflow-hidden mt-8 px-8 py-4 cursor-pointer uppercase text-sm font-bold tracking-wider  text-white
-             bg-[linear-gradient(to_right,var(--color-gradient-left),var(--color-gradient-right))]
-              shadow-[var(--shadow-glow)]"
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                whileHover="hover"
-              >
-                {/*  White rotating layer (hidden initially) */}
-                <motion.span
-                  className="absolute inset-0 bg-white z-10 origin-center"
-                  initial={{ rotate: -90, scale: 0 }}
-                  variants={{
-                    hover: {
-                      rotate: 0,
-                      scale: 1,
-                    },
-                  }}
-                  transition={{ duration: 0.5, ease: "easeInOut" }}
-                />
-
-                {/*  Text */}
-                <motion.span
-                  className="relative z-20"
-                  variants={{
-                    hover: { color: "#000" },
-                  }}
-                  transition={{ duration: 0.3 }}
+              <Link href="/contact">
+                <motion.button
+                  className="relative overflow-hidden mt-8 px-8 py-4 cursor-pointer uppercase text-sm font-bold tracking-wider  text-white
+               bg-[linear-gradient(to_right,var(--color-gradient-left),var(--color-gradient-right))]
+                shadow-[var(--shadow-glow)]"
+                  initial={{ opacity: 0, y: 40 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  whileHover="hover"
                 >
-                  Book NOW
-                </motion.span>
-              </motion.button>
+                  {/*  White rotating layer (hidden initially) */}
+                  <motion.span
+                    className="absolute inset-0 bg-white z-10 origin-center"
+                    initial={{ rotate: -90, scale: 0 }}
+                    variants={{
+                      hover: {
+                        rotate: 0,
+                        scale: 1,
+                      },
+                    }}
+                    transition={{ duration: 0.5, ease: "easeInOut" }}
+                  />
+
+                  {/*  Text */}
+                  <motion.span
+                    className="relative z-20"
+                    variants={{
+                      hover: { color: "#000" },
+                    }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    Book NOW
+                  </motion.span>
+                </motion.button>
+              </Link>
             </div>
           </motion.div>
         ))}

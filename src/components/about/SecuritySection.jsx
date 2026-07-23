@@ -44,38 +44,7 @@ export default function Services() {
           </h2>
         </div>
 
-        <motion.button
-          className="relative overflow-hidden mt-8 px-8 py-4 cursor-pointer uppercase text-sm font-bold tracking-wider  text-white
-             bg-[linear-gradient(to_right,var(--color-gradient-left),var(--color-gradient-right))]
-              shadow-[var(--shadow-glow)]"
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          whileHover="hover"
-        >
-          {/*  White rotating layer (hidden initially) */}
-          <motion.span
-            className="absolute inset-0 bg-white z-10 origin-center"
-            initial={{ rotate: -90, scale: 0 }}
-            variants={{
-              hover: {
-                rotate: 0,
-                scale: 1,
-              },
-            }}
-            transition={{ duration: 0.5, ease: "easeInOut" }}
-          />
-
-          {/*  Text */}
-          <motion.span
-            className="relative z-20"
-            variants={{
-              hover: { color: "#000" },
-            }}
-            transition={{ duration: 0.3 }}
-          >
-            BUY TICKETS
-          </motion.span>
-        </motion.button>
+       
       </div>
 
       {/* SERVICES GRID */}
@@ -103,7 +72,7 @@ export default function Services() {
                 e.currentTarget.style.transform =
                   "perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1)";
               }}
-              className="relative group p-8 rounded-2xl
+              className="relative group p-8
   bg-white/5 backdrop-blur-lg border border-white/10
   hover:border-[var(--color-primary)]
   shadow-[0_10px_30px_rgba(0,0,0,0.3)]
@@ -111,7 +80,7 @@ export default function Services() {
   transition duration-300 overflow-hidden"
             >
               {/* Reflection */}
-              <div className="absolute inset-0 overflow-hidden rounded-2xl">
+              <div className="absolute inset-0 overflow-hidden ">
                 <div
                   className="absolute -left-full top-0 w-full h-full 
       bg-gradient-to-r from-transparent via-white/10 to-transparent 

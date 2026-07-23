@@ -5,19 +5,26 @@ import { Quote } from "lucide-react";
 
 const testimonials = [
   {
-    name: "Francois Mercer",
-    role: "Club Member",
-    text: "I have been coming here for years and every night feels like a new experience. The vibe, music, and energy are unmatched.",
+    name: "Rahul Sharma",
+    role: "Regular Customer",
+    text: "CHICANE SPORTS BAR has become my go-to place for every cricket and football match. The giant screens, delicious food, and energetic crowd make every game feel like a stadium experience.",
   },
   {
-    name: "Emma Lee",
-    role: "DJ Artist",
-    text: "The best club atmosphere I’ve ever played in. Crowd energy is insane and production quality is top-tier.",
+    name: "Priya Verma",
+    role: "Weekend Visitor",
+    text: "I visited with my friends on a Saturday evening and had an amazing time. The ambience, music, and cocktails were excellent, and the staff made us feel truly welcome. We'll definitely be back.",
   },
+  
   {
-    name: "Pierre Curie",
-    role: "Event Guest",
-    text: "From lighting to sound, everything is perfectly curated. It’s not just a club, it’s an experience.",
+    name: "Sneha Kapoor",
+    role: "Corporate Guest",
+    text: "Our office team celebrated here after work, and everything was perfectly organized. The hospitality, food quality, and lively atmosphere exceeded our expectations.",
+  },
+ 
+  {
+    name: "Neha Gupta",
+    role: "Food & Drinks Lover",
+    text: "The food is absolutely delicious and the cocktails are fantastic. Whether you're here for a match or just a night out with friends, CHICANE SPORTS BAR never disappoints.",
   },
 ];
 
@@ -48,7 +55,7 @@ export default function TestimonialSection() {
       </div>
 
       {/* GRID */}
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+      <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-10">
         {testimonials.map((item, i) => (
           <motion.div
             key={i}
@@ -56,7 +63,7 @@ export default function TestimonialSection() {
             whileInView={{ opacity: 1, y: 0 }}
             whileHover={{ y: -10 }}
             transition={{ duration: 0.5, delay: i * 0.1 }}
-            className="relative group p-8 rounded-2xl
+            className="relative group p-8 
             bg-white/5 backdrop-blur-xl border border-white/10
             hover:border-[var(--color-primary)]
             transition duration-300 overflow-hidden"
@@ -78,7 +85,7 @@ export default function TestimonialSection() {
               {/* INITIAL AVATAR */}
               <div className="relative">
                 <div
-                  className="w-12 h-12 flex items-center justify-center rounded-full
+                  className="w-12 h-12 flex items-center justify-center 
                 bg-white/10 border border-white/20 font-bold text-sm"
                 >
                   {getInitials(item.name)}

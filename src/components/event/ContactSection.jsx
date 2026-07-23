@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 export default function Visit() {
   return (
@@ -41,65 +42,47 @@ export default function Visit() {
           Get notifications delivered to your email weekly
         </motion.p>
 
-        {/* INPUT BOX */}
+        {/* BUTTON */}
         <motion.div
           initial={{ opacity: 0, y: 60 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4 }}
-          className="mt-10 flex flex-col md:flex-row items-center gap-4
-          p-3  bg-white/5 backdrop-blur-xl border border-white/10
-          hover:border-[var(--color-primary)] transition duration-300"
+          className="mt-10 flex justify-center"
         >
-          {/* INPUT */}
-          <input
-            type="email"
-            placeholder="Enter your email"
-            className="w-full bg-transparent outline-none px-4 py-3 text-white placeholder-gray-400"
-          />
-
-          {/* BUTTON */}
-          {/* <button
-            className="px-8 py-3 uppercase text-sm font-bold tracking-wider
-            bg-[linear-gradient(to_right,var(--color-gradient-left),var(--color-gradient-right))]
-            shadow-[var(--shadow-glow)]
-           
-            hover:scale-105 hover:shadow-2xl transition duration-300"
-          >
-            SUBSCRIBE
-          </button> */}
-
-          <motion.button
-            className="relative overflow-hidden mt-2 px-8 py-4 cursor-pointer uppercase text-sm font-bold tracking-wider  text-white
+          <Link href="/contact">
+            <motion.button
+              className="relative overflow-hidden px-8 py-4 cursor-pointer uppercase text-sm font-bold tracking-wider text-white
              bg-[linear-gradient(to_right,var(--color-gradient-left),var(--color-gradient-right))]
               shadow-[var(--shadow-glow)]"
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            whileHover="hover"
-          >
-            {/*  White rotating layer (hidden initially) */}
-            <motion.span
-              className="absolute inset-0 bg-white z-10 origin-center"
-              initial={{ rotate: -90, scale: 0 }}
-              variants={{
-                hover: {
-                  rotate: 0,
-                  scale: 1,
-                },
-              }}
-              transition={{ duration: 0.5, ease: "easeInOut" }}
-            />
-
-            {/*  Text */}
-            <motion.span
-              className="relative z-20"
-              variants={{
-                hover: { color: "#000" },
-              }}
-              transition={{ duration: 0.3 }}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              whileHover="hover"
             >
-              SUBSCRIBE
-            </motion.span>
-          </motion.button>
+              {/*  White rotating layer (hidden initially) */}
+              <motion.span
+                className="absolute inset-0 bg-white z-10 origin-center"
+                initial={{ rotate: -90, scale: 0 }}
+                variants={{
+                  hover: {
+                    rotate: 0,
+                    scale: 1,
+                  },
+                }}
+                transition={{ duration: 0.5, ease: "easeInOut" }}
+              />
+
+              {/*  Text */}
+              <motion.span
+                className="relative z-20"
+                variants={{
+                  hover: { color: "#000" },
+                }}
+                transition={{ duration: 0.3 }}
+              >
+                CONTACT US
+              </motion.span>
+            </motion.button>
+          </Link>
         </motion.div>
 
         {/* EXTRA SMALL TEXT */}

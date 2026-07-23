@@ -36,7 +36,8 @@ export default function VisitSection() {
             <div className="flex items-start gap-4">
               <MapPin className="text-[var(--color-primary)] mt-1" />
               <p className="text-gray-300">
-                Greater Noida
+                MODI MALL, A 205, above MODI MALL, Sector 25, Sector 25A, Noida,
+                Uttar Pradesh 201307
               </p>
             </div>
 
@@ -49,7 +50,7 @@ export default function VisitSection() {
             {/* PHONE */}
             <div className="flex items-center gap-4">
               <Phone className="text-[var(--color-primary)]" />
-              <p className="text-gray-300">+91 9999999999</p>
+              <p className="text-gray-300">+91 9810485884</p>
             </div>
           </div>
         </motion.div>
@@ -68,18 +69,13 @@ export default function VisitSection() {
           <div className="space-y-6">
             {/* ROW */}
             <div className="flex justify-between border-b border-white/10 pb-4">
-              <span className="text-gray-300">Tuesday - Friday</span>
-              <span className="font-semibold">7:00 PM - 1:00 AM</span>
-            </div>
-
-            <div className="flex justify-between border-b border-white/10 pb-4">
-              <span className="text-gray-300">Saturday</span>
-              <span className="font-semibold">7:00 PM - 5:00 AM</span>
+              <span className="text-gray-300">Monday - Sunday</span>
+              <span className="font-semibold">11:00 AM - 12:00 AM</span>
             </div>
 
             <div className="flex justify-between">
-              <span className="text-gray-300">Sunday</span>
-              <span className="font-semibold">7:00 PM - 3:00 AM</span>
+              <span className="text-gray-300">Happy Hours</span>
+              <span className="font-semibold">11:00 AM - 11:30 PM</span>
             </div>
           </div>
         </motion.div>

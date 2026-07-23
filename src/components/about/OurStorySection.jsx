@@ -16,11 +16,11 @@ export default function OurStorySection() {
         >
           {/* image */}
           <Image
-            src="https://i.pinimg.com/736x/5d/12/d5/5d12d55aef1108d308b00b6b0ab02dc6.jpg"
+            src="/image10.jpg"
             alt="Club Story"
             width={600}
             height={700}
-            className="rounded-3xl object-cover w-full h-[500px]"
+            className=" object-cover w-full h-[500px]"
           />
 
           {/* glow effect */}
@@ -56,45 +56,17 @@ export default function OurStorySection() {
 
           {/* description */}
           <p className="mt-6 text-gray-400 leading-relaxed max-w-lg">
-            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-            nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat
-            cupidatat non proident, sunt in culpa qui officia deserunt mollit
-            anim id est laborum.
+            CHICANE SPORTS BAR was created with one simple vision—to bring
+            sports lovers, food enthusiasts, and friends together under one
+            roof. We believe every match deserves an unforgettable atmosphere,
+            where every goal, boundary, and victory is celebrated with great
+            food, refreshing drinks, and exceptional hospitality. From live
+            screenings of the biggest sporting events to vibrant evenings filled
+            with music and entertainment, CHICANE SPORTS BAR is more than just a
+            venue—it's a place where unforgettable memories are made.
           </p>
 
-          {/* button */}
-          <motion.button
-            className="relative overflow-hidden mt-8 px-8 py-4 cursor-pointer uppercase text-sm font-bold tracking-wider  text-white
-             bg-[linear-gradient(to_right,var(--color-gradient-left),var(--color-gradient-right))]
-              shadow-[var(--shadow-glow)]"
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            whileHover="hover"
-          >
-            {/*  White rotating layer (hidden initially) */}
-            <motion.span
-              className="absolute inset-0 bg-white z-10 origin-center"
-              initial={{ rotate: -90, scale: 0 }}
-              variants={{
-                hover: {
-                  rotate: 0,
-                  scale: 1,
-                },
-              }}
-              transition={{ duration: 0.5, ease: "easeInOut" }}
-            />
-
-            {/*  Text */}
-            <motion.span
-              className="relative z-20"
-              variants={{
-                hover: { color: "#000" },
-              }}
-              transition={{ duration: 0.3 }}
-            >
-             Read MORE
-            </motion.span>
-          </motion.button>
+          
         </motion.div>
       </div>
     </section>

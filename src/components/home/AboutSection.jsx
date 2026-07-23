@@ -107,7 +107,7 @@ export default function About() {
                 className="col-span-2 sm:col-span-1 relative aspect-[4/5] overflow-hidden"
               >
                 <motion.img
-                  src="https://images.pexels.com/photos/9588614/pexels-photo-9588614.jpeg"
+                  src="image4.webp"
                   alt=""
                   initial={{ scale: 1.15 }}
                   whileInView={{ scale: 1 }}

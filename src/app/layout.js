@@ -1,7 +1,7 @@
 import { Cormorant_Garamond, Poppins } from "next/font/google";
 import "./globals.css";
 
-
+import ScrollToTop from "@/components/ScrollToTop";
 
 const carmorant = Cormorant_Garamond({
   variable: "--font-heading",
@@ -22,7 +22,10 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${carmorant.variable} ${inter.variable}`}>
-      <body className="min-h-full flex flex-col font-body">{children}</body>
+      <body className="min-h-full flex flex-col font-body">
+        <ScrollToTop />
+        {children}
+      </body>
     </html>
   );
 }

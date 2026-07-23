@@ -55,36 +55,7 @@ export default function HeroSection() {
             facilities, and unforgettable experiences.
           </motion.p>
 
-          {/* BUTTON */}
-          <motion.button
-            className="relative overflow-hidden mt-5 md:mt-6 lg:mt-8 px-6 sm:px-8 py-3 sm:py-4 cursor-pointer uppercase text-xs sm:text-sm font-bold tracking-wider text-white
-            bg-[linear-gradient(to_right,var(--color-gradient-left),var(--color-gradient-right))]
-            shadow-[var(--shadow-glow)]"
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            whileHover="hover"
-          >
-            {/* ANIMATION LAYER */}
-            <motion.span
-              className="absolute inset-0 bg-white z-10 origin-center"
-              initial={{ rotate: -90, scale: 0 }}
-              variants={{
-                hover: { rotate: 0, scale: 1 },
-              }}
-              transition={{ duration: 0.5, ease: "easeInOut" }}
-            />
-
-            {/* TEXT */}
-            <motion.span
-              className="relative z-20"
-              variants={{
-                hover: { color: "#000" },
-              }}
-              transition={{ duration: 0.3 }}
-            >
-              Explore More
-            </motion.span>
-          </motion.button>
+         
 
           {/* SCROLL INDICATOR */}
           <motion.div

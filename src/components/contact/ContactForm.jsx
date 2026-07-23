@@ -20,7 +20,7 @@ export default function ContactForm() {
             alt="Contact"
             width={600}
             height={700}
-            className="rounded-3xl object-cover w-full h-[600px]"
+            className=" object-cover w-full h-[600px]"
           />
 
           {/* glow */}
@@ -32,7 +32,7 @@ export default function ContactForm() {
           initial={{ opacity: 0, x: 80 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8 }}
-          className="p-8 rounded-3xl bg-white/5 backdrop-blur-xl border border-white/10"
+          className="p-8  bg-white/5 backdrop-blur-xl border border-white/10"
         >
           {/* HEADER */}
           <p className="text-[var(--color-primary)] uppercase tracking-widest text-sm">

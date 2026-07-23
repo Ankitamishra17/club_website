@@ -30,7 +30,7 @@ const faqs = [
 ];
 
 export default function FAQSection() {
-  const [active, setActive] = useState();
+  const [active, setActive] = useState(0);
 
   return (
     <section className="bg-[var(--color-dark)] text-white py-24 md:py-32 px-6 md:px-16">
@@ -75,7 +75,7 @@ export default function FAQSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.08 }}
-                className={`rounded-xl border transition-colors duration-300 overflow-hidden ${
+                className={` border transition-colors duration-300 overflow-hidden ${
                   isActive
                     ? "bg-white/10 border-white/20"
                     : "bg-white/5 border-white/10 hover:border-[var(--color-primary)]/60"

@@ -37,7 +37,7 @@ export default function Services() {
     <section className="bg-[var(--color-dark)] text-white py-24 md:py-32 px-6 md:px-16">
       {/* Heading */}
       <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 md:mb-20 gap-8">
-        <div>
+        <div className="mt-36">
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
