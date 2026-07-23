@@ -166,7 +166,7 @@ export default function Footer() {
           <h3 className="mb-6 uppercase text-sm tracking-widest">Instagram</h3>
 
           <div className="grid grid-cols-2 gap-3">
-            {["/image8.webp", "/image9.jpg", "/image10.jpg", "image4.webp"].map(
+            {["/image8.webp", "/image9.jpg", "/image10.jpg","Image2.webp", ].map(
               (img, i) => (
                 <div key={i} className="overflow-hidden group">
                   <img

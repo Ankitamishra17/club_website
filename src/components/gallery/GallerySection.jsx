@@ -7,8 +7,8 @@ import Image from "next/image";
 
 const photos = [
   { title: "NEON PARTY", date: "APR 2026", type: "image", src: "/image1.jpg" },
-  { title: "EDM NIGHT", date: "MAR 2026", type: "image", src: "/image2.webp" },
-  { title: "DJ FEST", date: "FEB 2026", type: "image", src: "/image3.webp" },
+  { title: "EDM NIGHT", date: "MAR 2026", type: "image", src: "/Image2.webp" },
+  { title: "DJ FEST", date: "FEB 2026", type: "image", src: "/Image3.webp" },
   { title: "CLUB VIBES", date: "JAN 2026", type: "image", src: "/image4.webp" },
   { title: "CLUB VIBES", date: "JAN 2026", type: "image", src: "/image5.jpg" },
   { title: "CLUB VIBES", date: "JAN 2026", type: "image", src: "/image6.webp" },

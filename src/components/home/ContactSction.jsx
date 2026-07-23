@@ -107,14 +107,15 @@ export default function Visit() {
         >
           {/* Address */}
           <div className="flex gap-4 items-start mb-6">
-            <MapPin className="text-[var(--color-primary)] text-3xl" />
+            <MapPin
+              size={28}
+              className="text-[var(--color-primary)] flex-shrink-0"
+            />
             <p className="text-gray-300">
               MODI MALL, A 205, above MODI MALL, Sector 25, Sector 25A, Noida,
               Uttar Pradesh 201307
             </p>
           </div>
-
-         
 
           {/* Phone */}
           <div className="flex gap-4 items-center">

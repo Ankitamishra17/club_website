@@ -133,7 +133,7 @@ export default function UpcomingEvents() {
               <h3 className="text-2xl font-bold mt-1">{event.title}</h3>
 
               {/* COUNTDOWN */}
-              <Countdown targetDate={event.date} />
+              {/* <Countdown targetDate={event.date} /> */}
 
               {/* BUTTON */}
               <Link href="/contact">

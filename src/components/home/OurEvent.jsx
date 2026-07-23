@@ -6,7 +6,7 @@ import { ArrowUpRight } from "lucide-react";
 const events = [
   {
     date: "AUG 25, 2023",
-    title: "DJ DOMINIQUE",
+    title: "OPEN MIC NIGHT",
     desc: "",
     image:
       "/service1.avif",
@@ -20,7 +20,7 @@ const events = [
   },
   {
     date: "JUL 22, 2023",
-    title: "DJ PAUL FREEDMAN",
+    title: "LIVE DJ NIGHT",
     desc: "",
     image:
       "https://images.pexels.com/photos/3101520/pexels-photo-3101520.jpeg",

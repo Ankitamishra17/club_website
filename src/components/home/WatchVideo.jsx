@@ -42,7 +42,7 @@ export default function WatchVideo() {
         >
           A NIGHT AT{" "}
           <span className="text-transparent [-webkit-text-stroke:1px_white]">
-            CLUB X
+           CHICANE
           </span>
         </motion.h2>
         
