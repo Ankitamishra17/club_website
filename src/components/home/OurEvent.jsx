@@ -9,14 +9,14 @@ const events = [
     title: "DJ DOMINIQUE",
     desc: "",
     image:
-      "https://images.pexels.com/photos/13112765/pexels-photo-13112765.jpeg",
+      "/service1.avif",
   },
   {
     date: "JUL 22, 2023",
     title: "DJ PAUL FREEDMAN",
     desc: "",
     image:
-      "https://plus.unsplash.com/premium_photo-1683134058615-550b2d7c5381?q=80&w=870&auto=format&fit=crop",
+      "/service2.avif",
   },
   {
     date: "JUL 22, 2023",

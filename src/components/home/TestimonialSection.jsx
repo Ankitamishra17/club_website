@@ -34,11 +34,11 @@ export default function Testimonials() {
   };
 
   return (
-    <section className="relative bg-[var(--color-dark)] text-white py-24 px-6 md:px-16 overflow-hidden">
+    <section className="relative bg-[var(--color-dark)] text-white py-20 px-6 md:px-16 overflow-hidden">
       {/* AMBIENT NEON GLOW */}
 
       {/* Eyebrow */}
-      <div className="relative flex items-center gap-4">
+      <div className="relative flex items-center gap-4 -mt-18">
         <h2 className="text-[var(--color-primary)] uppercase tracking-widest text-xl relative inline-block">
           <motion.p
             initial={{ opacity: 0, x: -40 }}

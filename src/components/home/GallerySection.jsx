@@ -16,9 +16,9 @@ const images = [
 
 export default function Gallery() {
   return (
-    <section className="bg-[var(--color-dark)] text-white py-20 md:py-28 px-6 md:px-16 overflow-hidden">
+    <section className="bg-[var(--color-dark)] text-white py-14 md:py-28 px-6 md:px-16 overflow-hidden">
       {/* HEADER */}
-      <div className="grid md:grid-cols-2 gap-10 md:gap-14 items-center mb-16 md:mb-24">
+      <div className="grid md:grid-cols-2 gap-10 md:gap-14 items-center mb-16 -mt-16 md:mb-24">
         <motion.div
           initial={{ opacity: 0, y: 60 }}
           whileInView={{ opacity: 1, y: 0 }}

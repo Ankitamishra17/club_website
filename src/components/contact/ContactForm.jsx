@@ -5,6 +5,39 @@ import Image from "next/image";
 import { User, Mail, Phone, MessageSquare } from "lucide-react";
 
 export default function ContactForm() {
+  const validate = () => {
+    const newErrors = {};
+
+    // Name
+    if (!form.name.trim()) {
+      newErrors.name = "Name is required";
+    }
+
+    // Email
+    if (!form.email.trim()) {
+      newErrors.email = "Email is required";
+    } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(form.email)) {
+      newErrors.email = "Enter a valid email";
+    }
+
+    // Phone
+    if (!form.phone.trim()) {
+      newErrors.phone = "Mobile number is required";
+    } else if (!/^[6-9]\d{9}$/.test(form.phone)) {
+      newErrors.phone = "Enter a valid 10-digit mobile number";
+    }
+
+    // Message
+    if (!form.message.trim()) {
+      newErrors.message = "Message is required";
+    } else if (form.message.length < 10) {
+      newErrors.message = "Message must be at least 10 characters";
+    }
+
+    setErrors(newErrors);
+
+    return Object.keys(newErrors).length === 0;
+  };
   return (
     <section className="bg-[var(--color-dark)] text-white py-28 px-6 md:px-16 overflow-hidden">
       <div className="grid md:grid-cols-2 gap-16 items-center">

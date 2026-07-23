@@ -30,7 +30,7 @@ export default function Services() {
   return (
     <section className="bg-[var(--color-dark)] text-white py-28 px-6 md:px-16">
       {/* HEADER */}
-      <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-20 gap-6">
+      <div className="flex -mt-18 flex-col md:flex-row justify-between items-start md:items-center mb-20 gap-6">
         <div>
           <p className="text-[var(--color-primary)] uppercase tracking-widest text-sm">
             WE CARE ABOUT YOU

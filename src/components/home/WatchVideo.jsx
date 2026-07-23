@@ -10,7 +10,7 @@ export default function WatchVideo() {
     <section className="bg-[var(--color-dark)] text-white py-24 px-6 md:px-16">
      
 
-      <div className="text-center mb-16 flex flex-col items-center">
+      <div className="text-center mb-16 flex flex-col -mt-18 items-center">
         <div className="flex items-center gap-4">
           {/* TEXT */}
           <h2 className="text-[var(--color-primary)] uppercase tracking-widest text-xl relative inline-block">

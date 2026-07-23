@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { MapPin, Mail, Phone } from "lucide-react";
+import { MapPin, Phone } from "lucide-react";
 
 export default function Visit() {
   return (
@@ -114,11 +114,7 @@ export default function Visit() {
             </p>
           </div>
 
-          {/* Email */}
-          <div className="flex gap-4 items-center mb-6">
-            <Mail className="text-[var(--color-primary)]" />
-            <p className="text-gray-300">contact@club.com</p>
-          </div>
+         
 
           {/* Phone */}
           <div className="flex gap-4 items-center">

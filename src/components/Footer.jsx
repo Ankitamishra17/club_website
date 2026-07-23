@@ -10,18 +10,18 @@ export default function Footer() {
   const [modalOpen, setModalOpen] = useState(false);
 
   return (
-    <footer className="bg-[var(--color-dark)] text-white px-6 sm:px-10 md:px-16 py-16 md:py-20 overflow-x-hidden">
+    <footer className="bg-[var(--color-dark)] -mt-6 text-white px-6 sm:px-10 md:px-16 py-16 md:py-20 overflow-x-hidden">
       {/* TOP SECTION */}
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
-        className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-8 mb-14"
+        className="flex flex-col lg:flex-row  -mt-14 justify-between items-start lg:items-center gap-8 mb-14"
       >
         {/* Logo */}
 
         <Link href="/">
-          <div className="relative h-36 w-50">
+          <div className="relative h-36 w-50 ">
             <Image
               src="/logo.png"
               alt="Logo"
@@ -82,7 +82,7 @@ export default function Footer() {
       </motion.div>
 
       {/* DIVIDER */}
-      <div className="border-t border-white/10 mb-14" />
+      <div className="border-t border-white/10 mb-6" />
 
       {/* MAIN GRID */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
@@ -178,7 +178,7 @@ export default function Footer() {
       </div>
 
       {/* BOTTOM CREDIT BAR */}
-      <div className="border-t border-white/10 mt-14 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-gray-400">
+      <div className="border-t border-white/10 mt-10 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-gray-400">
         <p>© {new Date().getFullYear()} All Rights Reserved.</p>
 
         <p className="flex items-center gap-1.5">

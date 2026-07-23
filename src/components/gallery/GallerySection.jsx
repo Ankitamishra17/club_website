@@ -1,76 +1,22 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { X, ArrowLeft, ArrowRight, Play, Sparkles } from "lucide-react";
 import Image from "next/image";
 
 const photos = [
-  {
-    title: "NEON PARTY",
-    date: "APR 2026",
-    type: "image",
-    src: "/image1.jpg",
-  },
-  {
-    title: "EDM NIGHT",
-    date: "MAR 2026",
-    type: "image",
-    src: "/image2.webp",
-  },
-  {
-    title: "DJ FEST",
-    date: "FEB 2026",
-    type: "image",
-    src: "/image3.webp",
-  },
-  {
-    title: "CLUB VIBES",
-    date: "JAN 2026",
-    type: "image",
-    src: "/image4.webp",
-  },
-  {
-    title: "CLUB VIBES",
-    date: "JAN 2026",
-    type: "image",
-    src: "/image5.jpg",
-  },
-  {
-    title: "CLUB VIBES",
-    date: "JAN 2026",
-    type: "image",
-    src: "/image6.webp",
-  },
-  {
-    title: "CLUB VIBES",
-    date: "JAN 2026",
-    type: "image",
-    src: "/image7.wepb",
-  },
-  {
-    title: "CLUB VIBES",
-    date: "JAN 2026",
-    type: "image",
-    src: "/image8.webp",
-  },
-  {
-    title: "CLUB VIBES",
-    date: "JAN 2026",
-    type: "image",
-    src: "/image9.jpg",
-  },
-  {
-    title: "CLUB VIBES",
-    date: "JAN 2026",
-    type: "image",
-    src: "/image10.jpg",
-  },
-  {
-    title: "CLUB VIBES",
-    date: "JAN 2026",
-    type: "image",
-    src: "/image11.jpg",
-  },
+  { title: "NEON PARTY", date: "APR 2026", type: "image", src: "/image1.jpg" },
+  { title: "EDM NIGHT", date: "MAR 2026", type: "image", src: "/image2.webp" },
+  { title: "DJ FEST", date: "FEB 2026", type: "image", src: "/image3.webp" },
+  { title: "CLUB VIBES", date: "JAN 2026", type: "image", src: "/image4.webp" },
+  { title: "CLUB VIBES", date: "JAN 2026", type: "image", src: "/image5.jpg" },
+  { title: "CLUB VIBES", date: "JAN 2026", type: "image", src: "/image6.webp" },
+  { title: "CLUB VIBES", date: "JAN 2026", type: "image", src: "/image7.wepb" },
+  { title: "CLUB VIBES", date: "JAN 2026", type: "image", src: "/image8.webp" },
+  { title: "CLUB VIBES", date: "JAN 2026", type: "image", src: "/image9.jpg" },
+  { title: "CLUB VIBES", date: "JAN 2026", type: "image", src: "/image10.jpg" },
+  { title: "CLUB VIBES", date: "JAN 2026", type: "image", src: "/image11.jpg" },
   {
     title: "CLUB VIBES",
     date: "JAN 2026",
@@ -80,184 +26,296 @@ const photos = [
 ];
 
 const videos = [
-  {
-    title: "LIVE DJ SET",
-    date: "APR 2026",
-    type: "video",
-    src: "/video2.mp4",
-  },
-  {
-    title: "CLUB NIGHT",
-    date: "MAR 2026",
-    type: "video",
-    src: "/video3.mp4",
-  },
-  {
-    title: "CLUB NIGHT",
-    date: "MAR 2026",
-    type: "video",
-    src: "/video5.mp4",
-  },
+  { title: "LIVE DJ SET", date: "APR 2026", type: "video", src: "/video2.mp4" },
+  { title: "CLUB NIGHT", date: "MAR 2026", type: "video", src: "/video3.mp4" },
+  { title: "CLUB NIGHT", date: "MAR 2026", type: "video", src: "/video5.mp4" },
 ];
 
 export default function GallerySection() {
   const [tab, setTab] = useState("photos");
+  const [activeIndex, setActiveIndex] = useState(null);
 
   const data = tab === "photos" ? photos : videos;
+  const lightboxOpen = activeIndex !== null;
+
+  const closeLightbox = () => setActiveIndex(null);
+  const showPrev = () =>
+    setActiveIndex((i) => (i === 0 ? data.length - 1 : i - 1));
+  const showNext = () =>
+    setActiveIndex((i) => (i === data.length - 1 ? 0 : i + 1));
+
+  // Keyboard navigation
+  useEffect(() => {
+    if (!lightboxOpen) return;
+    const onKey = (e) => {
+      if (e.key === "Escape") closeLightbox();
+      if (e.key === "ArrowLeft") showPrev();
+      if (e.key === "ArrowRight") showNext();
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [lightboxOpen, data.length]);
 
   return (
-    <section className="bg-[var(--color-dark)] text-white py-28 px-6 md:px-16">
-      {/* HEADER + BUTTONS */}
-      <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-16 gap-6">
-        <div>
-          <p className="text-[var(--color-primary)] uppercase tracking-widest text-sm">
-            OUR GALLERY
-          </p>
+    <section className="bg-neutral-950 text-neutral-100 py-24 px-4 sm:px-8 lg:px-16 min-h-screen relative selection:bg-white selection:text-black">
+      {/* BACKGROUND GRAPHIC LINES */}
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:4rem_4rem] pointer-events-none" />
 
-          <h2 className="font-[var(--font-heading)] text-5xl md:text-7xl font-extrabold mt-6">
-            CAPTURED <br />
-            <span className="text-transparent [-webkit-text-stroke:1px_white]">
-              MOMENTS
-            </span>
-          </h2>
+      <div className="max-w-7xl mx-auto relative z-10">
+        {/* HEADER SECTION */}
+        <div className="border-b border-neutral-800 pb-12 mb-12 flex flex-col md:flex-row md:items-end justify-between gap-8">
+          <div>
+            <div className="flex items-center gap-2 text-xs font-mono tracking-widest text-neutral-400 uppercase mb-3">
+              <Sparkles
+                size={12}
+                className="text-[var(--color-primary, #fff)]"
+              />
+              <span>[ Archive 2026 ]</span>
+            </div>
+
+            <h2 className="text-5xl sm:text-7xl font-extrabold uppercase tracking-tighter leading-none">
+              Captured <br />
+              <span className="italic font-serif font-light text-neutral-500">
+                Moments
+              </span>
+            </h2>
+          </div>
+
+          {/* MINIMALIST TAB SWITCHER */}
+          <div className="flex items-center gap-1 bg-neutral-900/90 border border-neutral-800 p-1.5 rounded-2xl backdrop-blur-md self-start md:self-auto">
+            {["photos", "videos"].map((t) => (
+              <button
+                key={t}
+                onClick={() => {
+                  setTab(t);
+                  setActiveIndex(null);
+                }}
+                className={`relative px-6 py-2.5 rounded-xl text-xs font-semibold uppercase tracking-wider transition-all duration-300 ${
+                  tab === t
+                    ? "text-black font-bold"
+                    : "text-neutral-400 hover:text-white"
+                }`}
+              >
+                {tab === t && (
+                  <motion.div
+                    layoutId="editorialTab"
+                    className="absolute inset-0 bg-white rounded-xl shadow-lg"
+                    transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                  />
+                )}
+                <span className="relative z-10 flex items-center gap-2">
+                  {t}
+                  <span
+                    className={`text-[10px] px-1.5 py-0.5 rounded-full ${
+                      tab === t
+                        ? "bg-black/10 text-black"
+                        : "bg-neutral-800 text-neutral-400"
+                    }`}
+                  >
+                    {t === "photos" ? photos.length : videos.length}
+                  </span>
+                </span>
+              </button>
+            ))}
+          </div>
         </div>
 
-        {/* TOGGLE BUTTONS */}
-        <div className="flex gap-4">
-          {/* Photos Button */}
-          <motion.button
-            onClick={() => setTab("photos")}
-            className={`relative overflow-hidden cursor-pointer px-6 py-3 text-sm font-bold uppercase tracking-wider
-      ${
-        tab === "photos"
-          ? "bg-[linear-gradient(to_right,var(--color-gradient-left),var(--color-gradient-right))] text-white"
-          : "bg-[linear-gradient(to_right,var(--color-gradient-left),var(--color-gradient-right))] text-white"
-      }
-    `}
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            whileHover="hover"
+        {/* MEDIA GALLERY GRID */}
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={tab}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
           >
-            {/* Hover layer */}
-            <motion.span
-              className="absolute inset-0 bg-white z-10 origin-center"
-              initial={{ rotate: -90, scale: 0 }}
-              variants={{
-                hover: { rotate: 0, scale: 1 },
-              }}
-              transition={{ duration: 0.5, ease: "easeInOut" }}
-            />
+            {data.map((item, i) => (
+              <motion.div
+                key={item.src + i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: i * 0.04 }}
+                onClick={() => setActiveIndex(i)}
+                className="group relative bg-neutral-900 rounded-2xl overflow-hidden border border-neutral-800 hover:border-neutral-500 cursor-pointer aspect-[4/5] flex flex-col justify-between transition-all duration-500"
+              >
+                {/* MEDIA */}
+                <div className="absolute inset-0 z-0 overflow-hidden">
+                  {item.type === "image" ? (
+                    <Image
+                      src={item.src}
+                      alt={item.title}
+                      fill
+                      className="object-cover transition-transform duration-700 ease-out group-hover:scale-110 group-hover:filter group-hover:brightness-110"
+                    />
+                  ) : (
+                    <div className="relative w-full h-full">
+                      <video
+                        src={item.src}
+                        autoPlay
+                        muted
+                        loop
+                        playsInline
+                        className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+                      />
+                      <div className="absolute top-4 left-4 z-10 bg-black/70 backdrop-blur-md px-3 py-1 rounded-full border border-white/10 flex items-center gap-1.5 text-[10px] font-mono uppercase text-neutral-200">
+                        <Play size={10} className="fill-white" />
+                        <span>VIDEO</span>
+                      </div>
+                    </div>
+                  )}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-300" />
+                </div>
 
-            {/* Text */}
-            <motion.span
-              className="relative z-20"
-              variants={{
-                hover: { color: "#000" },
-              }}
-              transition={{ duration: 0.3 }}
-            >
-              Photos
-            </motion.span>
-          </motion.button>
+                {/* CARD TOP INFO */}
+                <div className="relative z-10 p-5 flex justify-between items-start">
+                  <span className="text-[10px] font-mono tracking-widest text-neutral-300 bg-black/50 backdrop-blur-md px-2.5 py-1 rounded-md border border-white/10">
+                    {item.date}
+                  </span>
+                  <span className="text-xs font-mono text-neutral-400 group-hover:text-white transition-colors">
+                    /{(i + 1).toString().padStart(2, "0")}
+                  </span>
+                </div>
 
-          {/* Videos Button */}
-          <motion.button
-            onClick={() => setTab("videos")}
-            className={`relative overflow-hidden cursor-pointer px-6 py-3 text-sm font-bold uppercase  tracking-wider
-      ${
-        tab === "videos"
-          ? "bg-[linear-gradient(to_right,var(--color-gradient-left),var(--color-gradient-right))] text-black"
-          : "bg-[linear-gradient(to_right,var(--color-gradient-left),var(--color-gradient-right))] text-white"
-      }
-    `}
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            whileHover="hover"
-          >
-            {/* Hover layer */}
-            <motion.span
-              className="absolute inset-0 bg-white z-10 origin-center"
-              initial={{ rotate: -90, scale: 0 }}
-              variants={{
-                hover: { rotate: 0, scale: 1 },
-              }}
-              transition={{ duration: 0.5, ease: "easeInOut" }}
-            />
-
-            {/* Text */}
-            <motion.span
-              className="relative z-20"
-              variants={{
-                hover: { color: "#000" },
-              }}
-              transition={{ duration: 0.3 }}
-            >
-              Videos
-            </motion.span>
-          </motion.button>
-        </div>
+                {/* CARD BOTTOM INFO */}
+                <div className="relative z-10 p-5 transform translate-y-1 group-hover:translate-y-0 transition-transform duration-300">
+                  <h3 className="text-lg font-black uppercase tracking-tight text-white group-hover:tracking-wider transition-all">
+                    {item.title}
+                  </h3>
+                  <div className="h-0.5 w-0 group-hover:w-full bg-white transition-all duration-300 mt-2" />
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
+        </AnimatePresence>
       </div>
 
-      {/* CONTENT SWITCH */}
-      <AnimatePresence mode="wait">
-        <motion.div
-          key={tab}
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -40 }}
-          transition={{ duration: 0.4 }}
-          className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6"
-        >
-          {data.map((item, i) => (
-            <div
-              key={i}
-              className="relative group overflow-hidden rounded-2xl h-[260px]"
-            >
-              {/* IMAGE */}
-              {item.type === "image" && (
-                <Image
-                  src={item.src}
-                  alt={item.title}
-                  fill
-                  className="object-cover group-hover:scale-110 transition duration-700"
-                />
-              )}
-
-              {/* VIDEO */}
-              {item.type === "video" && (
-                <video
-                  src={item.src}
-                  autoPlay
-                  muted
-                  loop
-                  className="w-full h-full object-cover"
-                />
-              )}
-
-              {/* OVERLAY */}
-              <div className="absolute inset-0 bg-black/40 group-hover:bg-black/70 transition" />
-
-              {/* TEXT */}
-              <div className="absolute bottom-4 left-4 z-10">
-                <p className="text-[var(--color-primary)] text-xs">
-                  {item.date}
-                </p>
-                <h3 className="text-sm font-bold">{item.title}</h3>
+      {/* EDITORIAL LIGHTBOX MODAL */}
+      <AnimatePresence>
+        {lightboxOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.25 }}
+            className="fixed inset-0 z-[100] bg-neutral-950/95 backdrop-blur-2xl flex flex-col justify-between p-6 md:p-12"
+            onClick={closeLightbox}
+          >
+            {/* TOP BAR */}
+            <div className="flex items-center justify-between w-full relative z-20">
+              <div className="flex items-center gap-4">
+                <span className="text-xs font-mono text-neutral-400 tracking-widest uppercase">
+                  {data[activeIndex].date}
+                </span>
+                <span className="text-neutral-700">|</span>
+                <span className="text-xs font-mono text-white tracking-widest">
+                  {activeIndex + 1} OF {data.length}
+                </span>
               </div>
 
-              {/* CTA */}
-              <div className="absolute inset-0 flex items-center mt-46 ml-32 justify-center opacity-0 group-hover:opacity-100 transition">
-                <button
-                  className="px-5 py-2 text-xs font-bold uppercase
-                bg-[linear-gradient(to_right,var(--color-gradient-left),var(--color-gradient-right))]
-                 cursor-pointer"
-                >
-                  OPEN
-                </button>
+              <button
+                onClick={closeLightbox}
+                aria-label="Close Lightbox"
+                className="w-10 h-10 rounded-full bg-neutral-900 border border-neutral-800 flex items-center justify-center text-neutral-400 hover:text-white hover:bg-neutral-800 transition-all"
+              >
+                <X size={18} />
+              </button>
+            </div>
+
+            {/* MAIN CONTENT AREA */}
+            <div className="relative flex-1 flex items-center justify-center my-6">
+              {/* NAVIGATION BUTTONS */}
+              <button
+                onClick={(e) => {
+                  e.stopPropagation();
+                  showPrev();
+                }}
+                aria-label="Previous Item"
+                className="absolute left-0 lg:left-4 z-30 w-12 h-12 rounded-full bg-neutral-900/80 border border-neutral-800 backdrop-blur-md flex items-center justify-center text-white hover:scale-110 active:scale-95 transition-all"
+              >
+                <ArrowLeft size={20} />
+              </button>
+
+              <button
+                onClick={(e) => {
+                  e.stopPropagation();
+                  showNext();
+                }}
+                aria-label="Next Item"
+                className="absolute right-0 lg:right-4 z-30 w-12 h-12 rounded-full bg-neutral-900/80 border border-neutral-800 backdrop-blur-md flex items-center justify-center text-white hover:scale-110 active:scale-95 transition-all"
+              >
+                <ArrowRight size={20} />
+              </button>
+
+              {/* ACTIVE MEDIA DISPLAY */}
+              <motion.div
+                key={activeIndex}
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                transition={{ duration: 0.3 }}
+                onClick={(e) => e.stopPropagation()}
+                className="relative max-w-4xl max-h-[68vh] w-full h-full flex flex-col items-center justify-center"
+              >
+                <div className="relative w-full h-full rounded-2xl overflow-hidden border border-neutral-800 bg-neutral-900 shadow-2xl">
+                  {data[activeIndex].type === "image" ? (
+                    <Image
+                      src={data[activeIndex].src}
+                      alt={data[activeIndex].title}
+                      fill
+                      className="object-contain"
+                    />
+                  ) : (
+                    <video
+                      src={data[activeIndex].src}
+                      controls
+                      autoPlay
+                      className="w-full h-full object-contain"
+                    />
+                  )}
+                </div>
+              </motion.div>
+            </div>
+
+            {/* BOTTOM FILMSTRIP THUMBNAILS */}
+            <div
+              className="relative z-20 flex flex-col items-center gap-4"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <h3 className="text-xl font-black uppercase tracking-tight text-white">
+                {data[activeIndex].title}
+              </h3>
+
+              <div className="flex items-center gap-2 overflow-x-auto max-w-full py-2 px-4 no-scrollbar">
+                {data.map((item, idx) => (
+                  <button
+                    key={idx}
+                    onClick={() => setActiveIndex(idx)}
+                    className={`relative w-12 h-12 rounded-lg overflow-hidden border-2 flex-shrink-0 transition-all ${
+                      activeIndex === idx
+                        ? "border-white scale-110 opacity-100"
+                        : "border-transparent opacity-40 hover:opacity-80"
+                    }`}
+                  >
+                    {item.type === "image" ? (
+                      <Image
+                        src={item.src}
+                        alt={item.title}
+                        fill
+                        className="object-cover"
+                      />
+                    ) : (
+                      <div className="w-full h-full bg-neutral-800 flex items-center justify-center">
+                        <Play size={12} className="fill-white text-white" />
+                      </div>
+                    )}
+                  </button>
+                ))}
               </div>
             </div>
-          ))}
-        </motion.div>
+          </motion.div>
+        )}
       </AnimatePresence>
     </section>
   );

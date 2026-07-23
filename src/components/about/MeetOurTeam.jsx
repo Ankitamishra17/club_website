@@ -26,7 +26,7 @@ export default function MeetOurTeam() {
   return (
     <section className="bg-[var(--color-dark)] text-white py-28 px-6 md:px-16 overflow-hidden">
       {/* HEADER */}
-      <div className="mb-20 max-w-4xl">
+      <div className="mb-20 max-w-4xl -mt-20">
         <p className="text-[var(--color-primary)] uppercase tracking-widest text-sm">
           OUR DJ'S
         </p>

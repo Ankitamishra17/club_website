@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import { motion } from "framer-motion";
 import { Calendar, Star, Martini, Disc3, ArrowUpRight } from "lucide-react";
 import Link from "next/link";
@@ -31,13 +30,14 @@ const services = [
 ];
 
 export default function Services() {
-  const [activeIndex, setActiveIndex] = useState(null);
-
   return (
-    <section className="bg-[var(--color-dark)] text-white py-24 md:py-32 px-6 md:px-16">
+    <section className="relative bg-[var(--color-dark)] text-white py-16 sm:py-24 md:py-32 px-5 sm:px-6 md:px-16 overflow-hidden">
+      {/* AMBIENT GLOW */}
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[var(--color-primary)]/10 rounded-full blur-[150px] pointer-events-none" />
+
       {/* Heading */}
-      <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 md:mb-20 gap-8">
-        <div className="mt-36">
+      <div className="relative flex flex-col md:flex-row justify-between items-start md:items-end mb-12 sm:mb-16 md:mb-20 gap-6 sm:gap-8">
+        <div>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -60,7 +60,7 @@ export default function Services() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, delay: 0.15 }}
-            className="font-[var(--font-heading)] text-4xl sm:text-5xl md:text-6xl font-extrabold mt-5 leading-[1.05]"
+            className="font-[var(--font-heading)] text-3xl sm:text-5xl md:text-6xl font-extrabold mt-4 sm:mt-5 leading-[1.1] sm:leading-[1.05]"
           >
             WHAT WE OFFER <br />
             IN{" "}
@@ -78,7 +78,7 @@ export default function Services() {
           transition={{ duration: 0.6, delay: 0.3 }}
           whileHover="hover"
           whileTap="hover"
-          className="group relative overflow-hidden px-6 py-4 cursor-pointer whitespace-nowrap uppercase text-sm font-bold tracking-wider text-white inline-flex
+          className="group relative overflow-hidden px-6 py-3.5 sm:py-4 cursor-pointer whitespace-nowrap uppercase text-sm font-bold tracking-wider text-white inline-flex w-full sm:w-auto justify-center
           bg-[linear-gradient(to_right,var(--color-gradient-left),var(--color-gradient-right))]
           shadow-[var(--shadow-glow)] items-center gap-2 shrink-0"
         >
@@ -102,82 +102,53 @@ export default function Services() {
         </MotionLink>
       </div>
 
-      {/* Numbered list */}
-      <div className="border-t border-white/10">
+      {/* CARD GRID */}
+      <div className="relative grid sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
         {services.map((item, i) => {
           const Icon = item.icon;
-          const isActive = activeIndex === i;
-
           return (
             <motion.div
               key={i}
-              initial={{ opacity: 0, y: 40 }}
+              initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: i * 0.1, ease: "easeOut" }}
-              onClick={() => setActiveIndex((prev) => (prev === i ? null : i))}
-              onMouseEnter={() => setActiveIndex(i)}
-              onMouseLeave={() =>
-                setActiveIndex((prev) => (prev === i ? null : prev))
-              }
-              className="relative border-b border-white/10 py-8 md:py-10 cursor-pointer select-none"
+              whileHover={{ y: -8 }}
+              className="group relative p-8 bg-white/[0.03] border border-white/10 backdrop-blur-sm overflow-hidden transition-colors duration-300 hover:border-[var(--color-primary)]/50"
             >
-              <div className="flex flex-col sm:flex-row sm:items-center gap-6 sm:gap-10">
-                {/* Index */}
-                <span
-                  className={`font-[var(--font-heading)] text-sm tracking-widest shrink-0 w-10 transition-colors duration-300 ${
-                    isActive ? "text-[var(--color-primary)]" : "text-gray-500"
-                  }`}
-                >
-                  {String(i + 1).padStart(2, "0")}
-                </span>
+              {/* Corner index */}
+              <span className="absolute top-6 right-6 font-[var(--font-heading)] text-xs tracking-widest text-gray-600 group-hover:text-[var(--color-primary)] transition-colors duration-300">
+                {String(i + 1).padStart(2, "0")}
+              </span>
 
-                {/* Icon frame */}
-                <div className="relative shrink-0 w-16 h-16 flex items-center justify-center border border-white/15 overflow-hidden">
-                  <motion.span
-                    className="absolute inset-0 bg-[linear-gradient(to_right,var(--color-gradient-left),var(--color-gradient-right))] origin-left"
-                    initial={{ scaleX: 0 }}
-                    animate={{ scaleX: isActive ? 1 : 0 }}
-                    transition={{ duration: 0.5, ease: "easeOut" }}
-                  />
-                  <Icon
-                    size={26}
-                    className={`relative z-10 transition-colors duration-300 ${
-                      isActive ? "text-white" : "text-[var(--color-primary)]"
-                    }`}
-                  />
-                </div>
+              {/* Glow on hover */}
+              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-500 bg-[radial-gradient(circle_at_top_left,rgba(255,0,150,0.15),transparent_70%)] pointer-events-none" />
 
-                {/* Title + desc */}
-                <div className="flex-1 flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-10">
-                  <h3 className="font-[var(--font-heading)] text-2xl md:text-3xl font-bold sm:w-64 shrink-0">
-                    {item.title}
-                  </h3>
-                  <p className="text-gray-400 text-sm md:text-base leading-relaxed max-w-md">
-                    {item.desc}
-                  </p>
-                </div>
-
-                {/* Arrow */}
-                <motion.div
-                  animate={{
-                    rotate: isActive ? 45 : 0,
-                    color: isActive ? "var(--color-primary)" : "#4b5563",
-                  }}
-                  transition={{ duration: 0.3 }}
-                  className="shrink-0"
-                >
-                  <ArrowUpRight size={22} />
-                </motion.div>
+              {/* Icon */}
+              <div className="relative w-16 h-16 flex items-center justify-center border border-white/15 mb-8 overflow-hidden">
+                <motion.span
+                  className="absolute inset-0 bg-[linear-gradient(to_right,var(--color-gradient-left),var(--color-gradient-right))] origin-bottom scale-y-0 group-hover:scale-y-100 transition-transform duration-500 ease-out"
+                />
+                <Icon
+                  size={26}
+                  className="relative z-10 text-[var(--color-primary)] group-hover:text-white transition-colors duration-300"
+                />
               </div>
 
-              {/* underline */}
-              <motion.span
-                className="absolute bottom-0 left-0 h-[1px] bg-[var(--color-primary)]"
-                initial={{ width: "0%" }}
-                animate={{ width: isActive ? "100%" : "0%" }}
-                transition={{ duration: 0.5, ease: "easeOut" }}
-              />
+              {/* Title */}
+              <h3 className="relative font-[var(--font-heading)] text-2xl font-bold mb-3">
+                {item.title}
+              </h3>
+
+              {/* Desc */}
+              <p className="relative text-gray-400 text-sm leading-relaxed mb-8">
+                {item.desc}
+              </p>
+
+              
+
+              {/* Bottom underline */}
+              <motion.span className="absolute bottom-0 left-0 h-[2px] bg-[var(--color-primary)] w-0 group-hover:w-full transition-all duration-500 ease-out" />
             </motion.div>
           );
         })}

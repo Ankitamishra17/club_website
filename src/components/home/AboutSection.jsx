@@ -11,7 +11,7 @@ export default function About() {
     <section className="relative bg-[var(--color-dark)] text-white py-24 md:py-32 px-6 md:px-12 lg:px-20 overflow-hidden">
       
 
-      <div className="max-w-7xl mx-auto relative">
+      <div className="max-w-7xl mx-auto -mt-18 relative">
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-10 items-center">
           {/* LEFT CONTENT */}
           <motion.div
