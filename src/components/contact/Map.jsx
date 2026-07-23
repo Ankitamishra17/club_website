@@ -8,7 +8,17 @@ export default function MapSection() {
     <section className="relative bg-black py-28 px-6 md:px-16 text-white overflow-hidden">
       {/* NEON GLOW */}
 
-      <div className="relative z-10 max-w-7xl mx-auto">
+      <div className="relative z-10 max-w-7xl mx-auto -mt-16">
+        <p className="text-[var(--color-primary)] mb-8  uppercase tracking-widest text-sm relative inline-block">
+          MAP
+          <motion.span
+            className="absolute left-0 -bottom-1 h-[1px] bg-[var(--color-primary)]"
+            initial={{ width: 0 }}
+            whileInView={{ width: "100%" }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.25 }}
+          />
+        </p>
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
