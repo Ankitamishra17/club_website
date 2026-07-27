@@ -4,40 +4,65 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
+import { FiInstagram, FiFacebook, FiYoutube } from "react-icons/fi";
 import TicketModal from "./TicketModal";
+
+const socials = [
+  { icon: FiInstagram, href: "https://instagram.com" },
+  { icon: FiFacebook, href: "https://facebook.com" },
+  { icon: FiYoutube, href: "https://youtube.com" },
+];
 
 export default function Footer() {
   const [modalOpen, setModalOpen] = useState(false);
 
   return (
-    <footer className="bg-[var(--color-dark)] -mt-6 text-white px-6 sm:px-10 md:px-16 py-16 md:py-20 overflow-x-hidden">
-      {/* TOP SECTION */}
-      <motion.div
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        className="flex flex-col lg:flex-row  -mt-14 justify-between items-start lg:items-center gap-8 mb-14"
-      >
-        {/* Logo */}
+    <footer className="bg-[var(--color-dark)] text-white px-6 sm:px-10 md:px-16 py-16 md:py-20 overflow-x-hidden">
+      {/* MAIN GRID */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8">
+        {/* BRAND */}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="sm:col-span-2 lg:col-span-1"
+        >
+          <Link href="/">
+            <div className="relative h-28 w-40 -mt-10">
+              <Image
+                src="/logo1.png"
+                alt="Logo"
+                fill
+                priority
+                className="object-contain object-left"
+              />
+            </div>
+          </Link>
 
-        <Link href="/">
-          <div className="relative h-36 w-50 ">
-            <Image
-              src="/logo1.png"
-              alt="Logo"
-              fill
-              priority
-              className="object-contain"
-            />
+          <p className="text-gray-400 text-sm leading-relaxed mt-5 max-w-xs">
+            Noida&apos;s premier sports bar &amp; club — live match screenings,
+            weekend DJ nights, and unforgettable celebrations.
+          </p>
+
+          {/* SOCIAL ICONS */}
+          <div className="flex items-center gap-3 mt-6">
+            {socials.map(({ icon: Icon, href }, i) => (
+              <a
+                key={i}
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-10 h-10 flex items-center justify-center border border-white/15 text-gray-300 hover:text-white hover:border-[var(--color-primary)] hover:bg-[var(--color-primary)]/10 transition-colors duration-300"
+              >
+                <Icon size={18} />
+              </a>
+            ))}
           </div>
-        </Link>
 
-        {/* Buttons */}
-        <div className="flex flex-col sm:flex-row gap-4 w-full lg:w-auto">
           {/* BUY TICKETS */}
           <motion.button
             onClick={() => setModalOpen(true)}
-            className="relative overflow-hidden px-6 py-4 uppercase text-sm sm:text-md font-bold tracking-wider text-white
+            className="relative overflow-hidden mt-8 px-6 py-4 uppercase text-sm font-bold tracking-wider text-white
             bg-[linear-gradient(to_right,var(--color-gradient-left),var(--color-gradient-right))]
             shadow-[var(--shadow-glow)] w-full sm:w-auto"
             whileHover="hover"
@@ -55,70 +80,15 @@ export default function Footer() {
               BUY TICKETS
             </motion.span>
           </motion.button>
-
-          {/* CONTACT */}
-          <Link href="/contact" className="w-full sm:w-auto">
-            <motion.button
-              className="relative overflow-hidden px-6 py-4 border border-white uppercase text-sm sm:text-md font-bold tracking-wider text-white
-              bg-transparent w-full sm:w-auto"
-              whileHover="hover"
-            >
-              <motion.span
-                className="absolute inset-0 bg-white z-10 origin-center"
-                initial={{ rotate: -90, scale: 0 }}
-                variants={{ hover: { rotate: 0, scale: 1 } }}
-                transition={{ duration: 0.5 }}
-              />
-              <motion.span
-                className="relative z-20"
-                initial={{ color: "#ffffff" }}
-                variants={{ hover: { color: "#000000" } }}
-              >
-                CONTACT US
-              </motion.span>
-            </motion.button>
-          </Link>
-        </div>
-      </motion.div>
-
-      {/* DIVIDER */}
-      <div className="border-t border-white/10 mb-6" />
-
-      {/* MAIN GRID */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
-        {/* EVENTS */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-        >
-          <h3 className="mb-6 uppercase text-sm tracking-widest">
-            Upcoming Events
-          </h3>
-
-          {[
-            {
-              name: "Live Screening: Champions League Final",
-              date: "Aug 25, 2026",
-            },
-            { name: "Quiz Night", date: "Aug 24, 2026" },
-            { name: "Weekend Match Night", date: "Aug 28, 2026" },
-          ].map((event, i) => (
-            <div key={i} className="mb-5 border-b border-white/10 pb-4">
-              <h3 className="font-semibold">{event.name}</h3>
-              <p className="text-gray-400 text-sm">{event.date}</p>
-              <p className="text-[var(--color-primary)] text-sm mt-1 cursor-pointer">
-                Reserve Table →
-              </p>
-            </div>
-          ))}
         </motion.div>
 
         {/* PAGES */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
         >
-          <h3 className="mb-6 uppercase text-sm tracking-widest">Pages</h3>
+          <h3 className="mb-6 uppercase text-sm tracking-widest">Quick Link</h3>
 
           {[
             { name: "Home", path: "/" },
@@ -139,11 +109,12 @@ export default function Footer() {
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
         >
           <h3 className="mb-6 uppercase text-sm tracking-widest">Contact</h3>
 
           <p className="text-gray-400 mb-4 leading-relaxed">
-            MODI MALL, A 205, above MODI MALL, Sector 25, Sector 25A, Noida,
+            Modi Mall, A 205, above Modi Mall, Sector 25, Sector 25A, Noida,
             Uttar Pradesh 201307
           </p>
           <a
@@ -165,6 +136,7 @@ export default function Footer() {
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
         >
           <h3 className="mb-6 uppercase text-sm tracking-widest">Instagram</h3>
 
@@ -187,7 +159,7 @@ export default function Footer() {
       </div>
 
       {/* BOTTOM CREDIT BAR */}
-      <div className="border-t border-white/10 mt-10 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-gray-400">
+      <div className="border-t border-white/10 mt-14 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-gray-400">
         <p>© {new Date().getFullYear()} All Rights Reserved.</p>
 
         <p className="flex items-center gap-1.5">

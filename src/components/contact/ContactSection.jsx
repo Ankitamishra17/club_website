@@ -36,7 +36,7 @@ export default function VisitSection() {
             <div className="flex items-start gap-4">
               <MapPin className="text-[var(--color-primary)] mt-1" />
               <p className="text-gray-300">
-                MODI MALL, A 205, above MODI MALL, Sector 25, Sector 25A, Noida,
+                Modi Mall, A 205, above Modi Mall, Sector 25, Sector 25A, Noida,
                 Uttar Pradesh 201307
               </p>
             </div>

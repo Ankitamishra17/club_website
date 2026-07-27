@@ -12,7 +12,7 @@ export default function page() {
       <Navbar />
       <HeroSection />
       <UpcomingEvent />
-      <PastEvent />
+      {/* <PastEvent /> */}
       <Testimonial />
       <ContactSection />
       <Footer />

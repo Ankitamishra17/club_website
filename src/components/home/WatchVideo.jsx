@@ -7,7 +7,7 @@ const MotionLink = motion (Link)
 
 export default function WatchVideo() {
   return (
-    <section className="bg-[var(--color-dark)] text-white py-24 px-6 md:px-16">
+    <section className="bg-[var(--color-dark)]  text-white py-24 px-6 md:px-16">
      
 
       <div className="text-center mb-16 flex flex-col -mt-18 items-center">
@@ -54,7 +54,7 @@ export default function WatchVideo() {
         whileInView={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.6 }}
         viewport={{ once: true }}
-        className="max-w-5xl mx-auto overflow-hidden"
+        className="max-w-3xl mx-auto overflow-hidden"
       >
         <iframe
           className="w-full h-[250px] md:h-[450px] rounded-none"

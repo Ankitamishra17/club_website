@@ -1,6 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
-import { Phone } from "lucide-react";
+import { FiPhone } from "react-icons/fi";
 
 export default function CallNowButton() {
   return (
@@ -14,16 +14,16 @@ export default function CallNowButton() {
       aria-label="Call Now"
       className="fixed bottom-6 right-6 z-[999] flex items-center justify-center w-16 h-16 rounded-full
       text-white
-      bg-[linear-gradient(to_right,var(--color-gradient-left),var(--color-gradient-right))]
-      shadow-[var(--shadow-glow)]"
+      bg-[#0e9640]
+      shadow-[0_0_20px_rgba(37,211,102,0.5)]"
     >
       {/* pulsing ring */}
       <motion.span
-        className="absolute inset-0 rounded-full bg-[var(--color-primary)]"
+        className="absolute inset-0 rounded-full bg-[#0e9640]"
         animate={{ scale: [1, 1.4, 1], opacity: [0.5, 0, 0.5] }}
         transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
       />
-      <Phone size={24} className="relative z-10" />
+      <FiPhone size={24} className="relative z-10" />
     </motion.a>
   );
 }

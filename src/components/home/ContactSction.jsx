@@ -112,8 +112,8 @@ export default function Visit() {
               className="text-[var(--color-primary)] flex-shrink-0"
             />
             <p className="text-gray-300">
-              MODI MALL, A 205, above MODI MALL, Sector 25, Sector 25A, Noida,
-              Uttar Pradesh 201307
+               Modi Mall, A 205, above Modi Mall, Sector 25, Sector 25A, Noida,
+            Uttar Pradesh 201307
             </p>
           </div>
 
