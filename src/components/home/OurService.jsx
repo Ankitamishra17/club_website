@@ -10,22 +10,22 @@ const services = [
   {
     icon: Martini,
     title: "DRINKS & BAR",
-    desc: "Excepteur sint occaecat cupidatat non proident sunt in culpa qui officia deserunt mollit.",
+    desc: "Signature cocktails, premium spirits, and an extensive selection of imported and local labels crafted by our expert mixologists.",
   },
   {
     icon: Star,
     title: "VIP ZONE",
-    desc: "Excepteur sint occaecat cupidatat non proident sunt in culpa qui officia deserunt mollit.",
+    desc: "Private booths and lounge seating with dedicated service, ideal for celebrations, corporate hangouts, and exclusive nights out.",
   },
   {
     icon: Disc3,
     title: "DANCE FLOOR",
-    desc: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+    desc: "A high-energy floor with immersive sound and lighting, featuring resident and guest DJs spinning every weekend.",
   },
   {
     icon: Calendar,
     title: "SPECIAL EVENTS",
-    desc: "Excepteur sint occaecat cupidatat non proident sunt in culpa qui officia deserunt mollit.",
+    desc: "Live match screenings, quiz nights, and themed parties — book the venue for private events and celebrations too.",
   },
 ];
 
@@ -126,9 +126,7 @@ export default function Services() {
 
               {/* Icon */}
               <div className="relative w-16 h-16 flex items-center justify-center border border-white/15 mb-8 overflow-hidden">
-                <motion.span
-                  className="absolute inset-0 bg-[linear-gradient(to_right,var(--color-gradient-left),var(--color-gradient-right))] origin-bottom scale-y-0 group-hover:scale-y-100 transition-transform duration-500 ease-out"
-                />
+                <motion.span className="absolute inset-0 bg-[linear-gradient(to_right,var(--color-gradient-left),var(--color-gradient-right))] origin-bottom scale-y-0 group-hover:scale-y-100 transition-transform duration-500 ease-out" />
                 <Icon
                   size={26}
                   className="relative z-10 text-[var(--color-primary)] group-hover:text-white transition-colors duration-300"
@@ -144,8 +142,6 @@ export default function Services() {
               <p className="relative text-gray-400 text-sm leading-relaxed mb-8">
                 {item.desc}
               </p>
-
-              
 
               {/* Bottom underline */}
               <motion.span className="absolute bottom-0 left-0 h-[2px] bg-[var(--color-primary)] w-0 group-hover:w-full transition-all duration-500 ease-out" />

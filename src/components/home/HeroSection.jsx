@@ -33,12 +33,12 @@ export default function HeroSection() {
 
           {/* Main heading */}
           <h1 className="text-3xl md:text-6xl lg:text-7xl font-extrabold leading-tight mt-4">
-            GOOD VIBES, <br /> HERE AT CLUB X
+            GOOD VIBES, <br /> HERE AT CHICANE
           </h1>
 
           {/* Paragraph */}
           <p className="font-body mt-6 text-gray-300 max-w-xl">
-            Presenting Club X, the ultimate Night Club Webflow Template
+            Presenting Chicane, the ultimate Night Club Webflow Template
           </p>
 
           {/* Buttons */}

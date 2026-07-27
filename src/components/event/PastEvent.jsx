@@ -6,32 +6,39 @@ import { CalendarRange, Clock } from "lucide-react";
 
 const events = [
   {
-    dj: "DJ SCOTTS",
-    title: "NEON NIGHT PARTY",
-    date: "25 APR 2026",
-    time: "10:00 PM",
-    img: "https://c.pxhere.com/photos/46/ec/drummer_performer_stage_lady_female_music_instrument_musician-1166001.jpg!d",
-  },
-  {
-    dj: "EMMA LEE",
-    title: "TECHNO BLAST",
-    date: "28 APR 2026",
-    time: "11:30 PM",
-    img: "https://img.freepik.com/premium-photo/pianist-playing-jazz-music-instrument-night-club_534992-1757.jpg",
-  },
-  {
-    dj: "PIERRE CURIE",
-    title: "EDM FEST",
-    date: "30 APR 2026",
+    dj: "BIRTHDAY BASH",
+    title: "PRIVATE BIRTHDAY CELEBRATION",
+    date: "12 JUN 2026",
     time: "09:00 PM",
-    img: "https://c.pxhere.com/photos/46/ec/drummer_performer_stage_lady_female_music_instrument_musician-1166001.jpg!d",
+    img: "https://images.pexels.com/photos/3249760/pexels-photo-3249760.jpeg",
   },
   {
-    dj: "DJ RAVEN",
-    title: "MIDNIGHT VIBES",
-    date: "02 MAY 2026",
+    dj: "DJ SCOTT",
+    title: "WEEKEND DJ NIGHT",
+    date: "20 JUN 2026",
     time: "10:30 PM",
-    img: "https://img.freepik.com/premium-photo/pianist-playing-jazz-music-instrument-night-club_534992-1757.jpg",
+    img: "https://images.pexels.com/photos/34784358/pexels-photo-34784358.jpeg",
+  },
+  {
+    dj: "HOSTED BY MC ARJUN",
+    title: "PUB QUIZ NIGHT",
+    date: "27 JUN 2026",
+    time: "08:00 PM",
+    img: "https://images.pexels.com/photos/3851302/pexels-photo-3851302.jpeg",
+  },
+  {
+    dj: "LIVE ON BIG SCREEN",
+    title: "MATCH SCREENING NIGHT",
+    date: "04 JUL 2026",
+    time: "09:00 PM",
+    img: "https://images.pexels.com/photos/9703053/pexels-photo-9703053.jpeg",
+  },
+  {
+    dj: "DJ EMMA LEE",
+    title: "LADIES NIGHT",
+    date: "11 JUL 2026",
+    time: "09:30 PM",
+    img: "https://images.pexels.com/photos/34784358/pexels-photo-34784358.jpeg",
   },
 ];
 

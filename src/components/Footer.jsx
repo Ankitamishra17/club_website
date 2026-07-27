@@ -96,15 +96,18 @@ export default function Footer() {
           </h3>
 
           {[
-            { name: "DJ Dominique", date: "Aug 25, 2023" },
-            { name: "Neon Nights", date: "Aug 24, 2023" },
-            { name: "DJ Paul Freedman", date: "Jul 22, 2023" },
+            {
+              name: "Live Screening: Champions League Final",
+              date: "Aug 25, 2026",
+            },
+            { name: "Quiz Night", date: "Aug 24, 2026" },
+            { name: "Weekend Match Night", date: "Aug 28, 2026" },
           ].map((event, i) => (
             <div key={i} className="mb-5 border-b border-white/10 pb-4">
               <h3 className="font-semibold">{event.name}</h3>
               <p className="text-gray-400 text-sm">{event.date}</p>
               <p className="text-[var(--color-primary)] text-sm mt-1 cursor-pointer">
-                Buy Tickets →
+                Reserve Table →
               </p>
             </div>
           ))}
@@ -166,16 +169,19 @@ export default function Footer() {
           <h3 className="mb-6 uppercase text-sm tracking-widest">Instagram</h3>
 
           <div className="grid grid-cols-2 gap-3">
-            {["/image8.webp", "/image9.jpg", "/image10.jpg","Image2.webp", ].map(
-              (img, i) => (
-                <div key={i} className="overflow-hidden group">
-                  <img
-                    src={img}
-                    className="w-full h-[100px] object-cover group-hover:scale-110 transition duration-500"
-                  />
-                </div>
-              ),
-            )}
+            {[
+              "/image8.webp",
+              "/image9.jpg",
+              "/image10.jpg",
+              "/Image2.webp",
+            ].map((img, i) => (
+              <div key={i} className="overflow-hidden group">
+                <img
+                  src={img}
+                  className="w-full h-[100px] object-cover group-hover:scale-110 transition duration-500"
+                />
+              </div>
+            ))}
           </div>
         </motion.div>
       </div>

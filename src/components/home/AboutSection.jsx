@@ -2,15 +2,13 @@
 
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
-import Link from "next/link"
+import Link from "next/link";
 
-const MotionLink = motion(Link)
+const MotionLink = motion(Link);
 
 export default function About() {
   return (
     <section className="relative bg-[var(--color-dark)] text-white py-24 md:py-32 px-6 md:px-12 lg:px-20 overflow-hidden">
-      
-
       <div className="max-w-7xl mx-auto -mt-18 relative">
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-10 items-center">
           {/* LEFT CONTENT */}
@@ -58,9 +56,10 @@ export default function About() {
               transition={{ duration: 0.6, delay: 0.3 }}
               className="text-gray-400 mt-6 leading-relaxed max-w-md"
             >
-              Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat excepteur sint occaecat
-              cupidatat non.
+              Chicane is Noida's premier sports bar and club, located at Modi
+              Mall, Sector 25A. From live match screenings and quiz nights to
+              electric weekend DJ sets, we bring together great food, curated
+              drinks, and unmatched energy under one roof.
             </motion.p>
 
             <MotionLink
@@ -70,7 +69,6 @@ export default function About() {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.4 }}
               whileHover="hover"
-              
               className="group relative overflow-hidden mt-9 px-8 py-4 cursor-pointer uppercase text-sm font-bold tracking-wider text-white
               bg-[linear-gradient(to_right,var(--color-gradient-left),var(--color-gradient-right))]
               shadow-[var(--shadow-glow)] flex items-center gap-2"
