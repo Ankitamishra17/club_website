@@ -5,7 +5,7 @@ import { FiPhone } from "react-icons/fi";
 export default function CallNowButton() {
   return (
     <motion.a
-      href="tel:+919810485884"
+      href="tel:+919990806427"
       initial={{ opacity: 0, scale: 0.5 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.4, delay: 0.5 }}

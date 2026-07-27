@@ -118,10 +118,10 @@ export default function Footer() {
             Uttar Pradesh 201307
           </p>
           <a
-            href="tel:+919810485884"
+            href="tel:+919990806427"
             className="block text-gray-400 hover:text-white transition mb-2"
           >
-            +91 9810485884
+            +91 9990806427
           </a>
 
           <a

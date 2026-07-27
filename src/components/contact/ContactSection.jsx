@@ -50,7 +50,7 @@ export default function VisitSection() {
             {/* PHONE */}
             <div className="flex items-center gap-4">
               <Phone className="text-[var(--color-primary)]" />
-              <p className="text-gray-300">+91 9810485884</p>
+              <p className="text-gray-300">+91 9990806427</p>
             </div>
           </div>
         </motion.div>

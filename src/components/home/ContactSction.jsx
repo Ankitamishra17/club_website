@@ -121,10 +121,10 @@ export default function Visit() {
           <div className="flex gap-4 items-center">
             <Phone className="text-[var(--color-primary)]" />
             <a
-              href="tel:+919810485884"
+              href="tel:+919990806427"
               className="text-gray-300 hover:text-[var(--color-primary)] transition"
             >
-              +91 9810485884
+              +91 9990806427
             </a>
           </div>
         </motion.div>
