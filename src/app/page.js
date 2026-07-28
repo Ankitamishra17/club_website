@@ -17,7 +17,7 @@ export default function Home() {
       <OurEvent />
       <OurService />
       <AboutSection />
-      <WatchVideo />
+      {/* <WatchVideo /> */}
       <GallerySection />
       <TestimonialSecton />
       <ContactSection />

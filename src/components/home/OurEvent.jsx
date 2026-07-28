@@ -5,25 +5,25 @@ import { ArrowUpRight } from "lucide-react";
 
 const events = [
   {
-    date: "AUG 25, 2023",
-    title: "OPEN MIC NIGHT",
+    date: "",
+    title: "",
     desc: "",
     image:
-      "/service1.avif",
+      "/4.jpg",
   },
   {
-    date: "JUL 22, 2023",
-    title: "DJ PAUL FREEDMAN",
+    date: "",
+    title: "",
     desc: "",
     image:
-      "/service2.avif",
+      "/3.jpeg",
   },
   {
-    date: "JUL 22, 2023",
-    title: "LIVE DJ NIGHT",
+    date: "",
+    title: "",
     desc: "",
     image:
-      "https://images.pexels.com/photos/3101520/pexels-photo-3101520.jpeg",
+      "/6.png",
   },
 ];
 
@@ -47,7 +47,7 @@ function EventCard({ event, big }) {
         className="w-full h-full object-cover transition duration-500 group-hover:scale-110 group-active:scale-105"
       />
 
-      <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
+      {/* <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" /> */}
 
       <div
         className={`absolute inset-x-0 bottom-0 flex items-end justify-between gap-4 ${
@@ -113,10 +113,10 @@ export default function Events() {
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.1 }}
           className="font-[var(--font-heading)] text-4xl sm:text-5xl md:text-6xl font-extrabold mt-5"
-        >
-          UPCOMING{" "}
+        > EVENTS WHICH MAKES US {""}
+       
           <span className="text-transparent [-webkit-text-stroke:1px_white]">
-            EVENTS
+            DIFFERENT
           </span>
         </motion.h2>
       </div>

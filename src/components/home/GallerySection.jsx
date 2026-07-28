@@ -5,180 +5,200 @@ import Link from "next/link";
 
 const MotionLink = motion(Link);
 
-const images = [
-  "https://wallpaperaccess.com/full/1490270.jpg",
-  "https://images.pexels.com/photos/29079307/pexels-photo-29079307.jpeg",
-  "https://images.pexels.com/photos/7271395/pexels-photo-7271395.jpeg",
-  "https://images.pexels.com/photos/6968859/pexels-photo-6968859.jpeg",
-  "https://images.pexels.com/photos/19923640/pexels-photo-19923640.jpeg",
-  "https://images.pexels.com/photos/1105666/pexels-photo-1105666.jpeg",
+// Each frame: { src, n, eyebrow, title, span } — span is the tailwind grid col/row classes
+const frames = [
+  {
+    src: "https://wallpaperaccess.com/full/1490270.jpg",
+    n: "01",
+    eyebrow: "Opening set",
+    title: "First hour, low light",
+    span: "col-span-2 row-span-3",
+  },
+  {
+    src: "https://images.pexels.com/photos/29079307/pexels-photo-29079307.jpeg",
+    n: "02",
+    eyebrow: "Crowd",
+    title: "Midnight",
+    span: "col-span-1 row-span-2",
+  },
+  {
+    src: "https://images.pexels.com/photos/7271395/pexels-photo-7271395.jpeg",
+    n: "03",
+    eyebrow: "Laser line",
+    title: "Second drop",
+    span: "col-span-1 row-span-2",
+  },
+  {
+    src: "https://images.pexels.com/photos/1105666/pexels-photo-1105666.jpeg",
+    n: "04",
+    eyebrow: "Live night",
+    title: "DJ experience",
+    span: "col-span-2 row-span-2",
+  },
+  {
+    src: "https://images.pexels.com/photos/6968859/pexels-photo-6968859.jpeg",
+    n: "05",
+    eyebrow: "Last call",
+    title: "Close to sunrise",
+    span: "col-span-1 row-span-3",
+  },
+  {
+    src: "https://images.pexels.com/photos/19923640/pexels-photo-19923640.jpeg",
+    n: "06",
+    eyebrow: "Encore",
+    title: "One more round",
+    span: "col-span-1 row-span-3",
+  },
 ];
+
+function Sprocket() {
+  return (
+    <div className="flex justify-between opacity-40 px-1">
+      {Array.from({ length: 24 }).map((_, i) => (
+        <span key={i} className="w-[6px] h-[6px] bg-white/40" />
+      ))}
+    </div>
+  );
+}
 
 export default function Gallery() {
   return (
-    <section className="bg-[var(--color-dark)] text-white py-14 md:py-28 px-6 md:px-16 overflow-hidden">
+    <section className="bg-[var(--color-dark,#0B0B10)] text-white py-16 md:py-24 px-6 md:px-16 overflow-hidden font-[var(--font-body,sans-serif)]">
+      {/* <Sprocket /> */}
+
       {/* HEADER */}
-      <div className="grid md:grid-cols-2 gap-10 md:gap-14 items-center mb-16 -mt-16 md:mb-24">
+  <div className="grid md:grid-cols-[1.1fr_0.9fr] gap-10 md:gap-16 items-center my-10 md:my-14">
+  {/* Left Content */}
+  <motion.div
+    initial={{ opacity: 0, y: 40 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true }}
+    transition={{ duration: 0.6 }}
+  >
+    <p className="font-mono text-[12px] tracking-[0.18em] uppercase text-[#FF3E7F] flex items-center gap-2">
+      <span className="w-5 h-px bg-[#FF3E7F]" />
+      Our Gallery
+    </p>
+
+    <h2 className="font-[var(--font-heading,'Bebas_Neue',sans-serif)] font-normal text-[13vw] sm:text-6xl md:text-7xl leading-[0.92] tracking-wide mt-4">
+      WHAT THE
+      <br />
+      <span className="text-transparent [-webkit-text-stroke:1.5px_white]">
+        NIGHT LOOKS
+      </span>{" "}
+      LIKE
+    </h2>
+
+    {/* <p className="mt-5 max-w-[38ch] text-[15px] leading-relaxed text-white/60">
+      Six frames pulled off last weekend&apos;s contact sheet. Every set leaves
+      a trace on the floor — this is ours.
+    </p> */}
+  </motion.div>
+
+  {/* Right Button */}
+  <div className="flex md:justify-end md:items-end h-full">
+    <MotionLink
+      href="/gallery"
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5, delay: 0.15 }}
+      whileHover="hover"
+      whileTap="hover"
+      className="relative inline-flex items-center gap-2 overflow-hidden isolate px-7 py-4 uppercase text-[13px] font-medium tracking-wider bg-white text-[#0B0B10] cursor-pointer"
+    >
+      <motion.span
+        className="absolute inset-0 -z-10 bg-[linear-gradient(100deg,#FF3E7F,#7A6BC9)]"
+        initial={{ x: "-101%" }}
+        variants={{ hover: { x: 0 } }}
+        transition={{ duration: 0.45, ease: [0.65, 0, 0.35, 1] }}
+      />
+
+      <motion.span
+        variants={{ hover: { color: "#F5F3EE" } }}
+        transition={{ duration: 0.2 }}
+      >
+        Enter the Gallery
+      </motion.span>
+    </MotionLink>
+  </div>
+</div>
+
+      {/* TICKER */}
+      <div className="border-y border-white/[0.14] py-3.5 mb-14 overflow-hidden whitespace-nowrap">
         <motion.div
-          initial={{ opacity: 0, y: 60 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7 }}
+          className="inline-flex"
+          animate={{ x: ["0%", "-50%"] }}
+          transition={{ duration: 24, ease: "linear", repeat: Infinity }}
         >
-          <h2 className="text-[var(--color-primary)] uppercase tracking-widest text-sm md:text-base relative inline-block">
-            OUR GALLERY
-            <motion.span
-              className="absolute left-0 -bottom-1 h-[1px] bg-[var(--color-primary)]"
-              initial={{ width: 0 }}
-              whileInView={{ width: "100%" }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.25 }}
-            />
-          </h2>
-
-          <h2 className="font-[var(--font-heading)] text-4xl sm:text-5xl font-extrabold mt-5 leading-tight">
-            FILL THE{" "}
-            <span className="text-transparent [-webkit-text-stroke:1px_white]">
-              EXPERIENCE
+          {Array.from({ length: 2 }).map((_, i) => (
+            <span key={i} className="font-mono text-[12px] tracking-[0.12em] uppercase text-white/55 pr-9">
+              <b className="text-[#33FFE0] font-medium">Tonight</b> — live sets &nbsp;•&nbsp;
+              <b className="text-[#33FFE0] font-medium">Doors</b> at 22:00 &nbsp;•&nbsp;
+              DJ experience &nbsp;•&nbsp; Full gallery — 240 frames &nbsp;•&nbsp;
             </span>
-          </h2>
+          ))}
+        </motion.div>
+      </div>
 
-          <MotionLink
-            href="/gallery"
+      {/* GALLERY GRID */}
+      <div className="grid grid-cols-2 md:grid-cols-4 auto-rows-[90px] md:auto-rows-[110px] gap-3.5">
+        {frames.map((f, i) => (
+          <motion.figure
+            key={f.n}
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.15 }}
+            transition={{ duration: 0.6, delay: i * 0.06 }}
             whileHover="hover"
             whileTap="hover"
-            className="relative overflow-hidden inline-block mt-8 px-8 py-4 cursor-pointer uppercase text-base font-bold tracking-wider text-white
-             bg-[linear-gradient(to_right,var(--color-gradient-left),var(--color-gradient-right))]
-              shadow-[var(--shadow-glow)]"
+            className={`relative overflow-hidden bg-[#141319] group ${f.span}`}
           >
-            <motion.span
-              className="absolute inset-0 bg-white z-10 origin-center"
-              initial={{ rotate: -90, scale: 0 }}
-              variants={{ hover: { rotate: 0, scale: 1 } }}
-              transition={{ duration: 0.35, ease: "easeOut" }}
+            <motion.img
+              src={f.src}
+              alt=""
+              variants={{ hover: { scale: 1.09 } }}
+              transition={{ duration: 0.9, ease: [0.2, 0.7, 0.3, 1] }}
+              className="w-full h-full object-cover saturate-[0.9] contrast-[1.05]"
             />
-            <motion.span
-              className="relative z-20"
-              variants={{ hover: { color: "#000" } }}
-              transition={{ duration: 0.2 }}
+
+            {/* bottom-up shade for legibility */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/5 to-transparent pointer-events-none" />
+
+            {/* diagonal sweep, signature micro-interaction */}
+            {/* <motion.div
+              className="absolute inset-0 pointer-events-none mix-blend-screen"
+              style={{
+                background:
+                  "linear-gradient(135deg, transparent 40%, rgba(255,62,127,0.35) 50%, transparent 60%)",
+              }}
+              initial={{ x: "-160%", skewX: -12 }}
+              variants={{ hover: { x: "160%" } }}
+              transition={{ duration: 0.8 }}
+            /> */}
+
+            <span className="absolute top-3 left-3 z-10 font-mono text-[10.5px] tracking-wider text-white/85 border border-white/35 px-1.5 py-0.5">
+              {f.n}
+            </span>
+
+            <motion.figcaption
+              className="absolute left-3.5 right-3.5 bottom-3 z-10"
+              initial={{ opacity: 0, y: 8 }}
+              variants={{ hover: { opacity: 1, y: 0 } }}
+              transition={{ duration: 0.3 }}
             >
-              <h2>VIEW MORE IMAGE</h2>
-            </motion.span>
-          </MotionLink>
-        </motion.div>
-
-        {/* FEATURE IMAGE */}
-        <motion.div
-          initial={{ opacity: 0, scale: 1.1 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7 }}
-          className="relative group overflow-hidden rounded-3xl"
-        >
-          <img
-            src={images[0]}
-            alt=""
-            className="w-full h-[260px] sm:h-[340px] md:h-[420px] object-cover transition duration-700 group-hover:scale-110 group-active:scale-110"
-          />
-
-          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
-
-          <div
-            className="absolute inset-0 opacity-0 group-hover:opacity-100 group-active:opacity-100 transition duration-500
-            bg-[radial-gradient(circle_at_center,rgba(255,0,150,0.25),transparent)] blur-2xl"
-          />
-        </motion.div>
+              <p className="font-mono text-[10px] tracking-[0.1em] uppercase text-[#33FFE0] m-0">
+                {f.eyebrow}
+              </p>
+              <h4 className="font-[var(--font-heading,'Bebas_Neue',sans-serif)] font-normal text-[19px] tracking-wide mt-0.5">
+                {f.title}
+              </h4>
+            </motion.figcaption>
+          </motion.figure>
+        ))}
       </div>
 
-      {/* PREMIUM GALLERY LAYOUT */}
-      <div className="grid md:grid-cols-3 gap-6">
-        {/* LEFT STACK */}
-        <div className="flex flex-col gap-6">
-          {images.slice(1, 3).map((img, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 60 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              whileHover={{ scale: 1.05, rotate: -1 }}
-              whileTap={{ scale: 1.05, rotate: -1 }}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="relative group overflow-hidden rounded-2xl"
-            >
-              <img
-                src={img}
-                alt=""
-                className="h-[180px] sm:h-[200px] md:h-[220px] w-full object-cover transition duration-700 group-hover:scale-110 group-active:scale-110"
-              />
-
-              <div
-                className="absolute inset-0 opacity-0 group-hover:opacity-100 group-active:opacity-100 transition
-              bg-[linear-gradient(120deg,transparent,rgba(255,0,150,0.3),transparent)] blur-xl"
-              />
-            </motion.div>
-          ))}
-        </div>
-
-        {/* CENTER HERO */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 1.05 }}
-          transition={{ duration: 0.5 }}
-          className="relative group overflow-hidden rounded-3xl"
-        >
-          <img
-            src={images[5]}
-            alt=""
-            className="h-[300px] sm:h-[400px] md:h-[500px] w-full object-cover transition duration-700 group-hover:scale-110 group-active:scale-110"
-          />
-
-          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
-
-          <div
-            className="absolute inset-0 opacity-0 group-hover:opacity-100 group-active:opacity-100 transition duration-500
-            bg-[radial-gradient(circle_at_center,rgba(0,255,255,0.25),transparent)] blur-2xl"
-          />
-
-          <div className="absolute bottom-6 left-6">
-            <p className="text-sm text-gray-300">LIVE NIGHT</p>
-            <h3 className="text-2xl font-bold">DJ EXPERIENCE</h3>
-          </div>
-        </motion.div>
-
-        {/* RIGHT STACK */}
-        <div className="flex flex-col gap-6">
-          {images.slice(3, 5).map((img, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 60 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              whileHover={{ scale: 1.05, rotate: 1 }}
-              whileTap={{ scale: 1.05, rotate: 1 }}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="relative group overflow-hidden rounded-2xl"
-            >
-              <img
-                src={img}
-                alt=""
-                className="h-[180px] sm:h-[200px] md:h-[220px] w-full object-cover transition duration-700 group-hover:scale-110 group-active:scale-110"
-              />
-
-              <div
-                className="absolute inset-0 opacity-0 group-hover:opacity-100 group-active:opacity-100 transition
-              bg-[linear-gradient(120deg,transparent,rgba(0,255,255,0.3),transparent)] blur-xl"
-              />
-            </motion.div>
-          ))}
-        </div>
-      </div>
+   
     </section>
   );
 }

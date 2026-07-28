@@ -48,10 +48,10 @@ export default function OurStorySection() {
 
           {/* main heading */}
           <h2 className="font-[var(--font-heading)] text-5xl md:text-7xl font-extrabold mt-6 leading-tight">
-            THE STORY <br />
-            BEHIND <br />
+            THE STORY BEHIND<br />
+         
             <span className="text-transparent [-webkit-text-stroke:1px_white]">
-              CLUB X
+              CHICANE BAR
             </span>
           </h2>
 

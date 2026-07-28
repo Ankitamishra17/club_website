@@ -6,19 +6,19 @@ import Image from "next/image";
 import { Share2, Globe, Play } from "lucide-react";
 const djs = [
   {
-    name: "SCOTTS",
-    country: "SPAIN",
-    img: "https://i.pinimg.com/736x/19/bc/8d/19bc8de39e48aa80013b283c6e74ba73.jpg",
+    name: "DJ TUSHII",
+    country: "NOIDA",
+    img: "https://i.pinimg.com/736x/8d/d8/42/8dd842ae1131ec83083095209fa8ab9d.jpg",
   },
   {
-    name: "EMMA LEE",
-    country: "BELGIUM",
-    img: "https://i.pinimg.com/1200x/41/40/28/4140284a5a140b87b301eb473a562c02.jpg",
+    name: "DJ ROX",
+    country: "NEW DELHI",
+    img: "https://i.pinimg.com/1200x/2e/6e/97/2e6e9765a747cad4549977cdf9391d5b.jpg",
   },
   {
-    name: "PIERRE CURIE",
-    country: "FRANCE",
-    img: "https://i.pinimg.com/1200x/f0/35/e7/f035e7f53c22c7af0c31aa6b39281843.jpg",
+    name: "DJ VIROBH",
+    country: "GURUGRAM",
+    img: "https://i.pinimg.com/1200x/26/07/08/26070851c5fab3d637f65db686a3cfb2.jpg",
   },
 ];
 

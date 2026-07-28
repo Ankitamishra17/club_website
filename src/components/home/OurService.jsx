@@ -32,9 +32,6 @@ const services = [
 export default function Services() {
   return (
     <section className="relative bg-[var(--color-dark)] text-white py-16 sm:py-24 md:py-32 px-5 sm:px-6 md:px-16 overflow-hidden">
-      {/* AMBIENT GLOW */}
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[var(--color-primary)]/10 rounded-full blur-[150px] pointer-events-none" />
-
       {/* Heading */}
       <div className="relative flex flex-col md:flex-row justify-between items-start md:items-end mb-12 sm:mb-16 md:mb-20 gap-6 sm:gap-8">
         <div>
@@ -60,7 +57,7 @@ export default function Services() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, delay: 0.15 }}
-            className="font-[var(--font-heading)] text-3xl sm:text-5xl md:text-6xl font-extrabold mt-4 sm:mt-5 leading-[1.1] sm:leading-[1.05]"
+            className="font-[var(--font-heading)] text-3xl sm:text-5xl md:text-7xl font-extrabold mt-4 sm:mt-5 leading-[1.1] sm:leading-[1.05] tracking-wider"
           >
             WHAT WE OFFER <br />
             IN{" "}
@@ -102,7 +99,7 @@ export default function Services() {
         </MotionLink>
       </div>
 
-      {/* CARD GRID */}
+      {/* CARD GRID — angled "track panel" cards */}
       <div className="relative grid sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
         {services.map((item, i) => {
           const Icon = item.icon;
@@ -114,15 +111,17 @@ export default function Services() {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: i * 0.1, ease: "easeOut" }}
               whileHover={{ y: -8 }}
-              className="group relative p-8 bg-white/[0.03] border border-white/10 backdrop-blur-sm overflow-hidden transition-colors duration-300 hover:border-[var(--color-primary)]/50"
+              className="group relative p-8 pt-10 bg-white/[0.03] border border-white/10 overflow-hidden transition-colors duration-300 hover:border-[var(--color-primary)]/50"
             >
-              {/* Corner index */}
-              <span className="absolute top-6 right-6 font-[var(--font-heading)] text-xs tracking-widest text-gray-600 group-hover:text-[var(--color-primary)] transition-colors duration-300">
-                {String(i + 1).padStart(2, "0")}
-              </span>
-
-              {/* Glow on hover */}
-              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-500 bg-[radial-gradient(circle_at_top_left,rgba(255,0,150,0.15),transparent_70%)] pointer-events-none" />
+              {/* Race-number corner tag */}
+              <div
+                className="absolute top-0 right-0 bg-white/10 group-hover:bg-[var(--color-primary)] transition-colors duration-300
+                px-3 py-1.5 [clip-path:polygon(15%_0,100%_0,100%_100%,0_100%)]"
+              >
+                <span className="font-[var(--font-heading)] text-xs tracking-widest text-white group-hover:text-black transition-colors duration-300">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+              </div>
 
               {/* Icon */}
               <div className="relative w-16 h-16 flex items-center justify-center border border-white/15 mb-8 overflow-hidden">
@@ -143,8 +142,11 @@ export default function Services() {
                 {item.desc}
               </p>
 
-              {/* Bottom underline */}
-              <motion.span className="absolute bottom-0 left-0 h-[2px] bg-[var(--color-primary)] w-0 group-hover:w-full transition-all duration-500 ease-out" />
+              {/* Racing-stripe underline — two-tone instead of single line */}
+              <div className="absolute bottom-0 left-0 flex w-full h-[3px]">
+                <motion.span className="h-full bg-[var(--color-primary)] w-0 group-hover:w-1/2 transition-all duration-500 ease-out" />
+                <motion.span className="h-full bg-white/40 w-0 group-hover:w-1/2 transition-all duration-500 delay-100 ease-out" />
+              </div>
             </motion.div>
           );
         })}

@@ -1,107 +1,204 @@
-
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
+import Link from "next/link";
+
+const MotionLink = motion(Link);
+
+/**
+ * Fonts used (add once, e.g. in app/layout.tsx or globals.css):
+ *   Bebas Neue  -> display / headline (neon signage)
+ *   Space Mono  -> ticket data (eyebrow, door info, footer strip)
+ *   Inter       -> body copy
+ *
+ *   @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Mono:wght@400;700&family=Inter:wght@400;500&display=swap');
+ *
+ * Duotone is pink + warm amber only (no blue). All colors read from your
+ * existing theme vars first and fall back to this palette if unset.
+ *
+ * RESPONSIVE NOTES
+ * - Uses 100dvh (with a 100vh fallback) so mobile browser chrome doesn't
+ *   clip content.
+ * - Headline uses clamp() instead of raw vw units so it can't blow up on
+ *   ultra-wide/4K screens or shrink illegibly on very narrow ones (<360px).
+ * - A max-w wrapper keeps the content block from stretching edge-to-edge
+ *   on very large monitors.
+ * - Ticket stub and door-info strip can wrap onto multiple lines instead
+ *   of overflowing on small screens.
+ * - Fixed a missing closing brace in .neon-fill that was breaking the
+ *   stylesheet.
+ */
 
 export default function HeroSection() {
+  const reduceMotion = useReducedMotion();
+  const fadeUp = (delay = 0) => ({
+    initial: reduceMotion ? { opacity: 1 } : { opacity: 0, y: 20 },
+    animate: { opacity: 1, y: 0 },
+    transition: { duration: 0.5, delay },
+  });
+
   return (
-    <section className="relative min-h-screen text-white overflow-hidden">
+    <section className="relative min-h-[100svh] min-h-[100dvh] text-white overflow-hidden">
+      <style>{`
+        .duotone-overlay {
+          background:
+            radial-gradient(circle at 30% 20%, rgba(255,46,154,0.25), transparent 55%),
+            radial-gradient(circle at 75% 75%, rgba(245,166,35,0.16), transparent 50%),
+            rgba(6,4,12,0.72);
+        }
+        .grain::after {
+          content: "";
+          position: absolute;
+          inset: 0;
+          pointer-events: none;
+          opacity: 0.05;
+          background-image: repeating-linear-gradient(0deg, #fff 0 1px, transparent 1px 3px);
+          mix-blend-mode: overlay;
+        }
+
+        /* Ticket framing */
+        .ticket-perforation {
+          background-image: repeating-linear-gradient(90deg, rgba(255,255,255,0.35) 0 6px, transparent 6px 14px);
+          height: 1px;
+        }
+        .ticket-stub {
+          display: inline-flex;
+          flex-wrap: wrap;
+          align-items: center;
+          gap: 0.6rem;
+          border: 1px solid rgba(255,255,255,0.25);
+          background: rgba(255,255,255,0.04);
+          border-radius: 999px;
+          padding: 0.4rem 0.85rem;
+          max-width: 100%;
+        }
+        .ticket-stub .divider {
+          width: 1px;
+          align-self: stretch;
+          background-image: repeating-linear-gradient(180deg, rgba(255,255,255,0.4) 0 4px, transparent 4px 8px);
+        }
+        .live-dot {
+          width: 6px;
+          height: 6px;
+          flex-shrink: 0;
+          border-radius: 999px;
+          background: var(--color-brand-pink, #ec1a63);
+          box-shadow: 0 0 6px rgba(236,26,99,0.9);
+        }
+
+        /* Neon type treatments (pink + amber, no blue) */
+        .neon-fill {
+          color: var(--color-primary, #ff2e9a);
+        }
+        .neon-outline {
+          color: transparent;
+          -webkit-text-stroke: 1.5px var(--color-amber, #fff);
+          filter: drop-shadow(0 0 8px rgba(245,166,35,0.55));
+        }
+        @supports not (-webkit-text-stroke: 1px #fff) {
+         
+        }
+
+        /* Fluid headline sizing: readable at 320px, capped on ultra-wide */
+        .neon-headline {
+          font-size: clamp(2.5rem, 6vw + 1rem, 6rem);
+        }
+
+        /* Buttons */
+        .btn-glow-pink:hover,
+        .btn-glow-pink:focus-visible {
+          box-shadow: 0 0 18px rgba(236,26,99,0.65), 0 0 46px rgba(236,26,99,0.35);
+        }
+        .btn-ghost-amber:hover,
+        .btn-ghost-amber:focus-visible {
+          border-color: var(--color-amber, #f5a623);
+          box-shadow: 0 0 16px rgba(245,166,35,0.3);
+        }
+        .btn-glow-pink:focus-visible,
+        .btn-ghost-amber:focus-visible {
+          outline: 2px solid rgba(255,255,255,0.85);
+          outline-offset: 3px;
+        }
+
+        @media (max-width: 360px) {
+          .neon-headline {
+            font-size: clamp(2.1rem, 9vw, 2.75rem);
+          }
+        }
+      `}</style>
+
       {/* BACKGROUND */}
       <div
-        className="min-h-screen bg-cover bg-center relative"
+        className="relative flex min-h-[100svh] min-h-[100dvh] flex-col bg-cover bg-center grain"
         style={{
           backgroundImage:
-            "url('https://images.pexels.com/photos/1190298/pexels-photo-1190298.jpeg')",
+            "url('https://i.pinimg.com/736x/30/f7/de/30f7dee6d9e3e62f50521361d7f22424.jpg')",
         }}
       >
-        {/* DARK OVERLAY */}
-        <div className="absolute inset-0 bg-black/60"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/60 to-black/0" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/40" />
 
-        {/* GRADIENT LIGHT */}
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,0,150,0.2),transparent)]"></div>
+        <div className="absolute inset-0 duotone-overlay" />
 
-        {/* CONTENT */}
-        <div className="relative flex flex-col items-center justify-center text-center px-6 min-h-screen pt-20 md:pt-24">
-          {/* SMALL TEXT */}
-          <motion.p
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="uppercase tracking-[4px] sm:tracking-[6px] text-xs sm:text-sm text-[var(--color-primary)]"
-          >
-            CLUB EXPERIENCE
-          </motion.p>
-
-          {/* TITLE */}
-          <motion.h1
-            initial={{ opacity: 0, y: 80 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-extrabold mt-3 md:mt-4 lg:mt-6 leading-tight font-[var(--font-heading)]"
-          >
-            ABOUT{" "}
-            <span className="text-transparent [-webkit-text-stroke:1px_white]">
-              US
+        <div className="relative z-10 mx-auto flex w-full max-w-[1600px] flex-1 flex-col justify-center px-4 pt-24 pb-8 xs:px-5 sm:px-8 sm:pt-32 sm:pb-10 md:px-12 md:pt-24 lg:px-16 xl:px-24">
+          {/* TICKET STUB — static, no motion */}
+          <motion.div {...fadeUp()} className="ticket-stub w-fit max-w-full">
+            <span className="live-dot" aria-hidden />
+            <span className="font-mono text-[9px] font-bold uppercase tracking-[0.2em] text-white/90 xs:text-[10px] sm:text-xs">
+              Admit One · Tonight
             </span>
-          </motion.h1>
+          </motion.div>
 
-          {/* DESCRIPTION */}
-          <motion.p
-            initial={{ opacity: 0, y: 60 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9 }}
-            className="mt-3 md:mt-4 lg:mt-6 text-gray-300 max-w-md sm:max-w-xl text-sm sm:text-base lg:text-lg"
-          >
-            Learn more about our club story, electrifying nights, premium
-            facilities, and unforgettable experiences.
+          {/* HEADLINE — simple fade, no flicker */}
+          <h1 className="neon-headline font-display mt-4 max-w-[20ch] break-words uppercase leading-[0.95] tracking-wide sm:mt-5">
+            <motion.span {...fadeUp(0.1)} className="block text-white">
+              Where the
+            </motion.span>
+            <motion.span {...fadeUp(0.18)} className="neon-fill block">
+              Night Comes
+            </motion.span>
+            <motion.span {...fadeUp(0.26)} className="neon-outline block">
+              Alive
+            </motion.span>
+          </h1>
+
+          <motion.p {...fadeUp(0.34)} className="mt-4 max-w-xs text-sm text-gray-300 sm:mt-5 sm:max-w-md sm:text-base md:max-w-lg">
+            Premium drinks, electrifying music and unforgettable nights.
           </motion.p>
 
-          {/* BUTTON */}
-          {/* <motion.button
-            className="relative overflow-hidden mt-5 md:mt-6 lg:mt-8 px-6 sm:px-8 py-3 sm:py-4 cursor-pointer uppercase text-xs sm:text-sm font-bold tracking-wider text-white
-            bg-[linear-gradient(to_right,var(--color-gradient-left),var(--color-gradient-right))]
-            shadow-[var(--shadow-glow)]"
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            whileHover="hover"
-          > */}
-            {/* ANIMATION LAYER */}
-            {/* <motion.span
-              className="absolute inset-0 bg-white z-10 origin-center"
-              initial={{ rotate: -90, scale: 0 }}
-              variants={{
-                hover: { rotate: 0, scale: 1 },
-              }}
-              transition={{ duration: 0.5, ease: "easeInOut" }}
-            /> */}
-
-            {/* TEXT */}
-            {/* <motion.span
-              className="relative z-20"
-              variants={{
-                hover: { color: "#000" },
-              }}
-              transition={{ duration: 0.3 }}
+          {/* CTAs */}
+          <div className="mt-7 flex w-full max-w-xs flex-col gap-3 sm:mt-8 sm:max-w-none sm:flex-row sm:gap-4">
+            <MotionLink
+              href="/contact"
+              className="btn-glow-pink relative inline-flex items-center justify-center gap-2 overflow-hidden bg-[var(--color-brand-pink,#ec1a63)] px-6 py-3 text-xs font-bold uppercase tracking-widest text-white transition-shadow duration-200 sm:px-7 sm:py-3.5"
+              whileHover={{ scale: 0.97 }}
+              transition={{ duration: 0.2, ease: "easeOut" }}
             >
-             Contact Us
-            </motion.span>
-          </motion.button> */}
+              Book a Table
+              <span aria-hidden>→</span>
+            </MotionLink>
 
-          {/* SCROLL INDICATOR */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1.2 }}
-            className="hidden md:flex absolute bottom-6 left-1/2 -translate-x-1/2"
-          >
-            <div className="w-6 h-10 border border-white/40 rounded-full flex justify-center">
-              <motion.div
-                animate={{ y: [0, 12, 0] }}
-                transition={{ repeat: Infinity, duration: 1.5 }}
-                className="w-1 h-3 bg-white mt-4 rounded-full"
-              />
-            </div>
-          </motion.div>
+            <MotionLink
+              href="/events"
+              className="btn-ghost-amber relative inline-flex items-center justify-center gap-2 overflow-hidden border border-white/40 px-6 py-3 text-xs font-bold uppercase tracking-widest text-white transition-[box-shadow,border-color] duration-200 sm:px-7 sm:py-3.5"
+              whileHover={{ scale: 0.97 }}
+              transition={{ duration: 0.2, ease: "easeOut" }}
+            >
+              View Events
+            </MotionLink>
+          </div>
+        </div>
+
+        {/* TICKET STUB — bottom perforation, door info (static) */}
+        <div className="relative z-10 mx-auto w-full max-w-[1600px] px-4 pb-5 xs:px-5 sm:px-8 sm:pb-6 md:px-12 lg:px-16 xl:px-24">
+          <div className="ticket-perforation w-full" aria-hidden />
+          <p className="mt-3 flex flex-wrap items-center gap-x-2 gap-y-1 font-mono text-[9px] uppercase tracking-[0.15em] text-white/60 xs:text-[10px] sm:mt-4 sm:text-xs sm:tracking-[0.2em]">
+            <span>21+ Only</span>
+            <span className="text-white/30">·</span>
+            <span>Doors 9PM–2AM</span>
+            <span className="text-white/30">·</span>
+            <span>Elevated Casual Dress</span>
+          </p>
         </div>
       </div>
     </section>
