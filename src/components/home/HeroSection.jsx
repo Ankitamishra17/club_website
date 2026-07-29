@@ -165,7 +165,7 @@ export default function HeroSection() {
           </MotionLink>
 
           <MotionLink
-            href="/events"
+            href="/event"
             className="relative inline-flex items-center justify-center gap-2 overflow-hidden border border-white/40 px-7 py-3.5 text-xs font-bold uppercase tracking-widest text-white"
             whileHover={{ scale: 0.97, borderColor: "rgba(255,255,255,0.9)" }}
             transition={{ duration: 0.2, ease: "easeOut" }}
