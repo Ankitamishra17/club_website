@@ -93,112 +93,116 @@ export default function WeeklyLineup() {
   }, []);
 
   return (
-    <section className="bg-[var(--color-dark)] text-white py-28 px-6 md:px-16">
-      {/* HEADER */}
-      <div className="mb-14">
-        <p className="text-[var(--color-primary)] uppercase tracking-widest text-sm">
-          Every week
-        </p>
-        <h2 className="font-[var(--font-heading)] text-5xl md:text-7xl font-extrabold mt-6 leading-[0.95]">
-          SAME PLACE. <br />
-          <span className="text-transparent [-webkit-text-stroke:1px_white]">
-            SEVEN DIFFERENT NIGHTS.
-          </span>
-        </h2>
-      </div>
+    <section className="bg-[var(--color-dark)] text-white py-16 sm:py-20 md:py-28 px-4 sm:px-6 md:px-16">
+      <div className="max-w-screen-2xl mx-auto">
+        {/* HEADER */}
+        <div className="mb-10 sm:mb-14">
+          <p className="text-[var(--color-primary)] uppercase tracking-widest text-xs sm:text-sm">
+            Every week
+          </p>
+          <h2 className="font-[var(--font-heading)] text-4xl sm:text-5xl md:text-7xl font-extrabold mt-4 sm:mt-6 leading-[0.95]">
+            SAME PLACE. <br />
+            <span className="text-transparent [-webkit-text-stroke:1px_white]">
+              SEVEN DIFFERENT NIGHTS.
+            </span>
+          </h2>
+        </div>
 
-      {/* THE WEEK — one row of panels, doubling as both nav and content.
-          Click a panel and it expands; the rest compress to a spine of
-          vertical labels. flex-grow driven, so it becomes a vertical
-          accordion on mobile with no extra markup. */}
-      <div
-        role="tablist"
-        aria-label="Day of the week"
-        className="flex flex-col md:flex-row gap-2 h-auto md:h-[560px]"
-      >
-        {lineup.map((night) => {
-          const isActive = night.day === activeDay;
-          const NightIcon = CATEGORY[night.category].icon;
-          const imageOk = !brokenImages[night.day];
+        {/* THE WEEK — one row of panels, doubling as both nav and content.
+            Click a panel and it expands; the rest compress to a spine of
+            vertical labels. flex-grow driven, so it becomes a vertical
+            accordion on phones/tablets and a horizontal row from lg up. */}
+        <div
+          role="tablist"
+          aria-label="Day of the week"
+          className="flex flex-col lg:flex-row gap-2 lg:h-[560px]"
+        >
+          {lineup.map((night) => {
+            const isActive = night.day === activeDay;
+            const NightIcon = CATEGORY[night.category].icon;
+            const imageOk = !brokenImages[night.day];
 
-          return (
-            <button
-              key={night.day}
-              role="tab"
-              aria-selected={isActive}
-              onClick={() => setActiveDay(night.day)}
-              style={{ flexGrow: isActive ? 12 : 1, flexBasis: 0 }}
-              className={`group relative overflow-hidden rounded-2xl text-left cursor-pointer
-                min-h-[72px] md:min-h-0 min-w-0
-                transition-[flex-grow] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]
-                focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--color-primary)]
-                ${isActive ? "ring-1 ring-white/15" : ""}`}
-            >
-              {/* background */}
-              <div className="absolute inset-0 bg-[linear-gradient(160deg,var(--color-gradient-left),var(--color-gradient-right))]">
-                {imageOk && (
-                  <Image
-                    src={night.image}
-                    alt={`${night.full}: ${night.title}`}
-                    fill
-                    sizes="(min-width: 768px) 20vw, 100vw"
-                    className="object-cover"
-                    onError={() =>
-                      setBrokenImages((prev) => ({ ...prev, [night.day]: true }))
-                    }
-                  />
-                )}
-              </div>
-              <div
-                className={`absolute inset-0 transition-colors duration-500 ${
-                  isActive
-                    ? "bg-[linear-gradient(to_top,var(--color-dark)_5%,rgba(10,10,10,0.25)_55%,rgba(10,10,10,0.1)_100%)]"
-                    : "bg-black/55 group-hover:bg-black/35"
-                }`}
-              />
-
-              {/* collapsed: icon + vertical day label */}
-              <div
-                className={`absolute inset-0 flex md:flex-col items-center justify-between md:justify-between px-6 py-4 md:py-6 transition-opacity duration-300 ${
-                  isActive ? "opacity-0 pointer-events-none" : "opacity-100"
-                }`}
+            return (
+              <button
+                key={night.day}
+                role="tab"
+                aria-selected={isActive}
+                onClick={() => setActiveDay(night.day)}
+                style={{ flexGrow: isActive ? 12 : 1, flexBasis: 0 }}
+                className={`group relative overflow-hidden rounded-2xl text-left cursor-pointer
+                  min-w-0 w-full lg:w-auto
+                  transition-[flex-grow,min-height] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]
+                  focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--color-primary)]
+                  ${isActive ? "min-h-[380px] sm:min-h-[440px]" : "min-h-[60px] sm:min-h-[72px]"}
+                  lg:min-h-0
+                  ${isActive ? "ring-1 ring-white/15" : ""}`}
               >
-                <NightIcon className="w-4 h-4 text-white/70 shrink-0" aria-hidden="true" />
-                <span className="text-xs font-bold tracking-[0.3em] uppercase text-white/80 md:[writing-mode:vertical-rl] md:rotate-180">
-                  {night.short}
-                </span>
-              </div>
+                {/* background */}
+                <div className="absolute inset-0 bg-[linear-gradient(160deg,var(--color-gradient-left),var(--color-gradient-right))]">
+                  {imageOk && (
+                    <Image
+                      src={night.image}
+                      alt={`${night.full}: ${night.title}`}
+                      fill
+                      sizes="(min-width: 1024px) 20vw, 100vw"
+                      className="object-cover"
+                      onError={() =>
+                        setBrokenImages((prev) => ({ ...prev, [night.day]: true }))
+                      }
+                    />
+                  )}
+                </div>
+                <div
+                  className={`absolute inset-0 transition-colors duration-500 ${
+                    isActive
+                      ? "bg-[linear-gradient(to_top,var(--color-dark)_5%,rgba(10,10,10,0.25)_55%,rgba(10,10,10,0.1)_100%)]"
+                      : "bg-black/55 group-hover:bg-black/35"
+                  }`}
+                />
 
-              {/* expanded: full detail */}
-              <motion.div
-                initial={false}
-                animate={{ opacity: isActive ? 1 : 0 }}
-                transition={{ duration: 0.35, delay: isActive ? 0.2 : 0 }}
-                className={`relative h-full flex flex-col justify-end p-6 md:p-9 ${
-                  isActive ? "" : "pointer-events-none"
-                }`}
-              >
-                <p className="text-[var(--color-primary)] text-xs uppercase tracking-widest">
-                  {night.full} · {CATEGORY[night.category].label}
-                </p>
-                <h3 className="text-2xl md:text-4xl font-extrabold font-[var(--font-heading)] mt-1">
-                  {night.title}
-                </h3>
-                <p className="text-gray-200 text-sm mt-2 max-w-md">{night.blurb}</p>
-
-                <Link href="/contact" className="mt-6 w-fit" tabIndex={isActive ? 0 : -1}>
-                  <span
-                    className="relative overflow-hidden inline-block px-7 py-3.5 uppercase text-xs font-bold tracking-wider text-white
-                    bg-[linear-gradient(to_right,var(--color-gradient-left),var(--color-gradient-right))]
-                    shadow-[var(--shadow-glow)] hover:brightness-110 transition-[filter]"
-                  >
-                    Reserve a table
+                {/* collapsed: icon + day label (horizontal spine on phones/tablets, vertical spine at lg+) */}
+                <div
+                  className={`absolute inset-0 flex lg:flex-col items-center justify-between px-4 sm:px-6 py-3 sm:py-4 lg:py-6 transition-opacity duration-300 ${
+                    isActive ? "opacity-0 pointer-events-none" : "opacity-100"
+                  }`}
+                >
+                  <NightIcon className="w-4 h-4 text-white/70 shrink-0" aria-hidden="true" />
+                  <span className="text-xs font-bold tracking-[0.2em] sm:tracking-[0.3em] uppercase text-white/80 lg:[writing-mode:vertical-rl] lg:rotate-180">
+                    {night.short}
                   </span>
-                </Link>
-              </motion.div>
-            </button>
-          );
-        })}
+                </div>
+
+                {/* expanded: full detail */}
+                <motion.div
+                  initial={false}
+                  animate={{ opacity: isActive ? 1 : 0 }}
+                  transition={{ duration: 0.35, delay: isActive ? 0.2 : 0 }}
+                  className={`relative h-full flex flex-col justify-end p-5 sm:p-6 md:p-9 ${
+                    isActive ? "" : "pointer-events-none"
+                  }`}
+                >
+                  <p className="text-[var(--color-primary)] text-xs uppercase tracking-widest">
+                    {night.full} · {CATEGORY[night.category].label}
+                  </p>
+                  <h3 className="text-xl sm:text-2xl md:text-4xl font-extrabold font-[var(--font-heading)] mt-1">
+                    {night.title}
+                  </h3>
+                  <p className="text-gray-200 text-sm mt-2 max-w-md">{night.blurb}</p>
+
+                  <Link href="/contact" className="mt-5 sm:mt-6 w-fit" tabIndex={isActive ? 0 : -1}>
+                    <span
+                      className="relative overflow-hidden inline-block px-5 py-3 sm:px-7 sm:py-3.5 uppercase text-xs font-bold tracking-wider text-white
+                      bg-[linear-gradient(to_right,var(--color-gradient-left),var(--color-gradient-right))]
+                      shadow-[var(--shadow-glow)] hover:brightness-110 transition-[filter]"
+                    >
+                      Reserve a table
+                    </span>
+                  </Link>
+                </motion.div>
+              </button>
+            );
+          })}
+        </div>
       </div>
     </section>
   );
