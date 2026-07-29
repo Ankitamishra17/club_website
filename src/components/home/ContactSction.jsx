@@ -91,7 +91,7 @@ export default function Visit() {
                   }}
                   transition={{ duration: 0.3 }}
                 >
-                  <h1> BUY TICKETS</h1>
+                  <h1> Book Now</h1>
                 </motion.span>
               </motion.button>
             </Link>

@@ -154,15 +154,21 @@ export default function HeroSection() {
 
         {/* Buttons — stack and go full width on phones so they stay easy to tap */}
         <div className="mt-8 flex w-full flex-col gap-3 xs:max-w-xs sm:max-w-none sm:flex-row sm:gap-4">
-          <MotionLink
-            href="/contact"
+          {/* Plain <a> (not next/link) + the `download` attribute, so the
+              browser saves the file instead of navigating to / previewing
+              it. This file must exist at /public/menu-card-1-NEW-FILE.pdf
+              in your Next.js project (i.e. project-root/public/menu-card-1-NEW-FILE.pdf)
+              for this path to resolve to a real file. */}
+          <motion.a
+            href="/menu-card-1-NEW-FILE.pdf"
+            download
             className="relative inline-flex items-center justify-center gap-2 overflow-hidden bg-[var(--color-brand-pink,#ec1a63)] px-7 py-3.5 text-xs font-bold uppercase tracking-widest text-white"
             whileHover={{ scale: 0.97 }}
             transition={{ duration: 0.2, ease: "easeOut" }}
           >
-            Book a Table
-            <span aria-hidden>→</span>
-          </MotionLink>
+            Download Menu
+            <span aria-hidden>↓</span>
+          </motion.a>
 
           <MotionLink
             href="/event"

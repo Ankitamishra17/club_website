@@ -110,7 +110,7 @@ export default function Navbar() {
                 variants={{ hover: { color: "#000" } }}
                 transition={{ duration: 0.2 }}
               >
-                Buy tickets
+                Book Now
               </motion.span>
             </motion.button>
           </div>
@@ -200,7 +200,7 @@ export default function Navbar() {
                   bg-[linear-gradient(to_right,var(--color-gradient-left),var(--color-gradient-right))]
                   shadow-[var(--shadow-glow)]"
                 >
-                  Buy tickets
+                  Book now
                 </motion.button>
               </div>
             </motion.div>

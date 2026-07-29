@@ -180,14 +180,14 @@ export default function HeroSection() {
               <span aria-hidden>→</span>
             </MotionLink>
 
-            <MotionLink
-              href="/event"
+            <motion.a
+              href="/menu-card-1-NEW-FILE.pdf" download
               className="btn-ghost-amber relative inline-flex items-center justify-center gap-2 overflow-hidden border border-white/40 px-6 py-3 text-xs font-bold uppercase tracking-widest text-white transition-[box-shadow,border-color] duration-200 sm:px-7 sm:py-3.5"
               whileHover={{ scale: 0.97 }}
               transition={{ duration: 0.2, ease: "easeOut" }}
             >
-              View Events
-            </MotionLink>
+              Download Food Menu
+            </motion.a>
           </div>
         </div>
 

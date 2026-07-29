@@ -189,15 +189,14 @@ export default function WeeklyLineup() {
                   </h3>
                   <p className="text-gray-200 text-sm mt-2 max-w-md">{night.blurb}</p>
 
-                  <Link href="/contact" className="mt-5 sm:mt-6 w-fit" tabIndex={isActive ? 0 : -1}>
+                  <motion.a href="/Menu-card-Alcohol-NEW.pdf" download className="mt-5 sm:mt-6 w-fit" tabIndex={isActive ? 0 : -1}>
                     <span
                       className="relative overflow-hidden inline-block px-5 py-3 sm:px-7 sm:py-3.5 uppercase text-xs font-bold tracking-wider text-white
                       bg-[linear-gradient(to_right,var(--color-gradient-left),var(--color-gradient-right))]
                       shadow-[var(--shadow-glow)] hover:brightness-110 transition-[filter]"
                     >
-                      Reserve a table
-                    </span>
-                  </Link>
+                    Download Bar Menu                    </span>
+                  </motion.a>
                 </motion.div>
               </button>
             );

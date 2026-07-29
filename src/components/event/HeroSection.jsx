@@ -168,24 +168,39 @@ Upcoming Events · Reserve Early            </span>
 
           {/* CTAs */}
           <div className="mt-7 flex w-full max-w-xs flex-col gap-3 sm:mt-8 sm:max-w-none sm:flex-row sm:gap-4">
-            <MotionLink
-              href="/contact"
+            <motion.a
+              href="/Menu-card-Alcohol-NEW.pdf" download
               className="btn-glow-pink relative inline-flex items-center justify-center gap-2 overflow-hidden bg-[var(--color-brand-pink,#ec1a63)] px-6 py-3 text-xs font-bold uppercase tracking-widest text-white transition-shadow duration-200 sm:px-7 sm:py-3.5"
               whileHover={{ scale: 0.97 }}
               transition={{ duration: 0.2, ease: "easeOut" }}
             >
-                Reserve Your Spot
-              <span aria-hidden>→</span>
-            </MotionLink>
+                Download Drink Menu
+              <span aria-hidden>↓</span>
+            </motion.a>
 
-            <MotionLink
+            {/* <MotionLink
               href="/gallery"
               className="btn-ghost-amber relative inline-flex items-center justify-center gap-2 overflow-hidden border border-white/40 px-6 py-3 text-xs font-bold uppercase tracking-widest text-white transition-[box-shadow,border-color] duration-200 sm:px-7 sm:py-3.5"
               whileHover={{ scale: 0.97 }}
               transition={{ duration: 0.2, ease: "easeOut" }}
             >
               Visit Gallery
-            </MotionLink>
+            </MotionLink> */}
+
+            {/* Plain <a> (not next/link) + `download` attribute so the
+                browser saves the file instead of navigating to it.
+                This file must exist at /public/menu-card-1-NEW-FILE.pdf
+                in your Next.js project for this path to resolve. */}
+            <motion.a
+              href="/menu-card-1-NEW-FILE.pdf"
+              download
+              className="btn-ghost-amber relative inline-flex items-center justify-center gap-2 overflow-hidden border border-white/40 px-6 py-3 text-xs font-bold uppercase tracking-widest text-white transition-[box-shadow,border-color] duration-200 sm:px-7 sm:py-3.5"
+              whileHover={{ scale: 0.97 }}
+              transition={{ duration: 0.2, ease: "easeOut" }}
+            >
+              Download Menu
+              <span aria-hidden>↓</span>
+            </motion.a>
           </div>
         </div>
 

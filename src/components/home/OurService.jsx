@@ -90,7 +90,7 @@ export default function Services() {
             variants={{ hover: { color: "#000" } }}
             transition={{ duration: 0.2 }}
           >
-            Buy tickets
+            Book Now
             <ArrowUpRight
               size={18}
               className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
