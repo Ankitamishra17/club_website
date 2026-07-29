@@ -42,8 +42,8 @@ export default function HeroSection() {
       <style>{`
         .duotone-overlay {
           background:
-            radial-gradient(circle at 30% 20%, rgba(255,46,154,0.25), transparent 55%),
-            radial-gradient(circle at 75% 75%, rgba(245,166,35,0.16), transparent 50%),
+            radial-gradient(circle at 30% 20%, rgba(6,4,12,0.02), transparent 35%),
+            // radial-gradient(circle at 75% 75%, rgba(6,4,12,0.02), transparent 30%),
             rgba(6,4,12,0.72);
         }
         .grain::after {
@@ -132,7 +132,7 @@ export default function HeroSection() {
         className="relative flex min-h-[100svh] min-h-[100dvh] flex-col bg-cover bg-center grain"
         style={{
           backgroundImage:
-            "url('https://i.pinimg.com/736x/30/f7/de/30f7dee6d9e3e62f50521361d7f22424.jpg')",
+            "url('/banner5.png')",
         }}
       >
         <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/60 to-black/0" />
@@ -140,41 +140,43 @@ export default function HeroSection() {
 
         <div className="absolute inset-0 duotone-overlay" />
 
-        <div className="relative z-10 mx-auto flex w-full max-w-[1600px] flex-1 flex-col justify-center px-4 pt-24 pb-8 xs:px-5 sm:px-8 sm:pt-32 sm:pb-10 md:px-12 md:pt-24 lg:px-16 xl:px-24">
+        <div className="relative z-10 mx-auto flex w-full max-w-[1600px] flex-1 flex-col justify-center px-4 pt-24 pb-8 xs:px-5 sm:px-8 sm:pt-32 sm:pb-10 md:px-12 md:pt-24 lg:px-16 xl:px-16">
           {/* TICKET STUB — static, no motion */}
           <motion.div {...fadeUp()} className="ticket-stub w-fit max-w-full">
             <span className="live-dot" aria-hidden />
             <span className="font-mono text-[9px] font-bold uppercase tracking-[0.2em] text-white/90 xs:text-[10px] sm:text-xs">
-              Admit One · Tonight
+              Chicane Sports Bar & Club · Since 2026
             </span>
           </motion.div>
 
           {/* HEADLINE — simple fade, no flicker */}
           <h1 className="neon-headline font-display mt-4 max-w-[20ch] break-words uppercase leading-[0.95] tracking-wide sm:mt-5">
             <motion.span {...fadeUp(0.1)} className="block text-white">
-              Where the
+               Where Sports,
             </motion.span>
             <motion.span {...fadeUp(0.18)} className="neon-fill block">
-              Night Comes
+              Music &
             </motion.span>
             <motion.span {...fadeUp(0.26)} className="neon-outline block">
-              Alive
+              Nightlife Unite
             </motion.span>
           </h1>
 
           <motion.p {...fadeUp(0.34)} className="mt-4 max-w-xs text-sm text-gray-300 sm:mt-5 sm:max-w-md sm:text-base md:max-w-lg">
-            Premium drinks, electrifying music and unforgettable nights.
-          </motion.p>
+ Chicane Sports Bar & Club brings together thrilling live sports,
+  handcrafted cocktails, premium dining, and an electrifying nightlife
+  experience—all under one roof. Every visit is designed to create
+  unforgettable moments with friends, music, and celebration.          </motion.p>
 
           {/* CTAs */}
           <div className="mt-7 flex w-full max-w-xs flex-col gap-3 sm:mt-8 sm:max-w-none sm:flex-row sm:gap-4">
             <MotionLink
-              href="/contact"
+              href="/gallery"
               className="btn-glow-pink relative inline-flex items-center justify-center gap-2 overflow-hidden bg-[var(--color-brand-pink,#ec1a63)] px-6 py-3 text-xs font-bold uppercase tracking-widest text-white transition-shadow duration-200 sm:px-7 sm:py-3.5"
               whileHover={{ scale: 0.97 }}
               transition={{ duration: 0.2, ease: "easeOut" }}
             >
-              Book a Table
+              Explore Gallery
               <span aria-hidden>→</span>
             </MotionLink>
 
@@ -193,11 +195,11 @@ export default function HeroSection() {
         <div className="relative z-10 mx-auto w-full max-w-[1600px] px-4 pb-5 xs:px-5 sm:px-8 sm:pb-6 md:px-12 lg:px-16 xl:px-24">
           <div className="ticket-perforation w-full" aria-hidden />
           <p className="mt-3 flex flex-wrap items-center gap-x-2 gap-y-1 font-mono text-[9px] uppercase tracking-[0.15em] text-white/60 xs:text-[10px] sm:mt-4 sm:text-xs sm:tracking-[0.2em]">
-            <span>21+ Only</span>
+            <span>Live Sports</span>
             <span className="text-white/30">·</span>
-            <span>Doors 9PM–2AM</span>
+            <span>Premium Cocktails</span>
             <span className="text-white/30">·</span>
-            <span>Elevated Casual Dress</span>
+            <span>Live DJs Every Weekends</span>
           </p>
         </div>
       </div>

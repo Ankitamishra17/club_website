@@ -18,8 +18,8 @@ const manrope = Manrope({
 });
 
 export const metadata = {
-  title: "CHICANE SPORTS BAR",
-  description: " CHICANE SPORTS BAR WEBSITE",
+  title: "CHICANE -The Club & Lounge not only offers deliciousness. It delights its customers with a setting that breathes life.",
+  description: "It delights its customers with a setting that breathes life.",
 };
 
 export default function RootLayout({ children }) {

@@ -60,7 +60,7 @@ export default function Footer() {
           </div>
 
           {/* BUY TICKETS */}
-          <motion.button
+          {/* <motion.button
             onClick={() => setModalOpen(true)}
             className="relative overflow-hidden mt-8 px-6 py-4 uppercase text-sm font-bold tracking-wider text-white
             bg-[linear-gradient(to_right,var(--color-gradient-left),var(--color-gradient-right))]
@@ -79,7 +79,7 @@ export default function Footer() {
             >
               BUY TICKETS
             </motion.span>
-          </motion.button>
+          </motion.button> */}
         </motion.div>
 
         {/* PAGES */}
@@ -165,7 +165,9 @@ export default function Footer() {
         <p className="flex items-center gap-1.5">
           Developed by{" "}
           <span className="font-semibold text-white tracking-wide relative inline-block group cursor-pointer">
+            <a href="https://www.deboxtechnology.com/" target="_blank">
             Debox Technology
+            </a>
             <span className="absolute left-0 -bottom-0.5 w-0 h-[1px] bg-[var(--color-primary)] transition-all duration-300 group-hover:w-full" />
           </span>
         </p>

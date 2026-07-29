@@ -9,7 +9,7 @@ export default function VisitSection() {
       className="relative bg-fixed bg-center bg-cover py-28 px-6 md:px-16 text-white overflow-hidden"
       style={{
         backgroundImage:
-          "url('https://i.pinimg.com/736x/9a/93/52/9a9352f75e39576bd0ecaa5be6d06f9b.jpg')",
+          "url('/1.jpeg')",
       }}
     >
       {/* DARK OVERLAY */}

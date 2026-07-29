@@ -8,7 +8,7 @@ export default function Visit() {
     <section
       className="relative bg-fixed bg-center bg-cover py-32 px-6 md:px-16 text-white overflow-hidden"
       style={{
-        backgroundImage: "url('https://wallpaperaccess.com/full/1490263.jpg')",
+        backgroundImage: "url('/2.jpeg')",
       }}
     >
       {/* DARK OVERLAY */}
