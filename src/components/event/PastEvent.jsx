@@ -9,7 +9,7 @@ import { Tag, Clapperboard, Feather, Trophy, PartyPopper } from "lucide-react";
 const CATEGORY = {
   mrp: { icon: Tag, label: "On the house pricing" },
   bollywood: { icon: Clapperboard, label: "Bollywood" },
-  sufi: { icon: Feather, label: "Sufi" },
+  sufi: { icon: Feather, label: "Week with the Chicane Way" },
   cricket: { icon: Trophy, label: "Match night" },
   party: { icon: PartyPopper, label: "Open floor" },
 };
