@@ -167,7 +167,7 @@ export default function HeroSection() {
           </motion.p>
 
           {/* CTAs */}
-          <div className="mt-7 flex w-full max-w-xs flex-col gap-3 sm:mt-8 sm:max-w-none sm:flex-row sm:gap-4">
+          {/* <div className="mt-7 flex w-full max-w-xs flex-col gap-3 sm:mt-8 sm:max-w-none sm:flex-row sm:gap-4">
             <MotionLink
               href="/contact"
               className="btn-glow-pink relative inline-flex items-center justify-center gap-2 overflow-hidden bg-[var(--color-brand-pink,#ec1a63)] px-6 py-3 text-xs font-bold uppercase tracking-widest text-white transition-shadow duration-200 sm:px-7 sm:py-3.5"
@@ -186,7 +186,7 @@ export default function HeroSection() {
             >
               View Events
             </MotionLink>
-          </div>
+          </div> */}
         </div>
 
         {/* TICKET STUB — bottom perforation, door info (static) */}

@@ -95,7 +95,7 @@ export default function Footer() {
             { name: "About", path: "/about" },
             { name: "Events", path: "/event" },
             { name: "Gallery", path: "/gallery" },
-            { name: "Ticket", path: "/contact" },
+           
           ].map((item, i) => (
             <Link key={i} href={item.path}>
               <p className="mb-3 text-gray-400 hover:text-white cursor-pointer transition">
