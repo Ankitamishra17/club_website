@@ -60,7 +60,7 @@ export default function GallerySection() {
 
   return (
     <section className="bg-[var(--color-dark)] text-white py-24 px-4 sm:px-8 lg:px-16 min-h-screen relative selection:bg-white selection:text-black overflow-hidden">
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:4rem_4rem] pointer-events-none" />
+      {/* <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:4rem_4rem] pointer-events-none" /> */}
 
       <div className="max-w-6xl mx-auto relative z-10">
         {/* HEADER */}
