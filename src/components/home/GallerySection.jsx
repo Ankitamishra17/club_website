@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 
 const MotionLink = motion(Link);
 
@@ -12,6 +13,7 @@ const frames = [
     n: "01",
     eyebrow: "Opening set",
     title: "First hour, low light",
+    alt: "Chicane Sports Bar atmosphere in Noida",
     span: "col-span-2 row-span-3",
   },
   {
@@ -19,6 +21,7 @@ const frames = [
     n: "02",
     eyebrow: "Crowd",
     title: "Midnight",
+    alt: "Guests enjoying the atmosphere at Chicane Sports Bar in Noida",
     span: "col-span-1 row-span-2",
   },
   {
@@ -26,6 +29,7 @@ const frames = [
     n: "03",
     eyebrow: "Laser line",
     title: "Second drop",
+    alt: "Live entertainment at Chicane Sports Bar in Noida",
     span: "col-span-1 row-span-2",
   },
   {
@@ -33,6 +37,7 @@ const frames = [
     n: "04",
     eyebrow: "Live night",
     title: "DJ experience",
+    alt: "Sports bar experience at Chicane Sports Bar in Noida",
     span: "col-span-2 row-span-2",
   },
   {
@@ -40,6 +45,7 @@ const frames = [
     n: "05",
     eyebrow: "Last call",
     title: "Close to sunrise",
+     alt: "Guests enjoying a night at Chicane Sports Bar in Noida",
     span: "col-span-1 row-span-3",
   },
   {
@@ -47,6 +53,7 @@ const frames = [
     n: "06",
     eyebrow: "Encore",
     title: "One more round",
+    alt: "Chicane Sports Bar nightlife experience in Noida",
     span: "col-span-1 row-span-3",
   },
 ];
@@ -67,62 +74,59 @@ export default function Gallery() {
       {/* <Sprocket /> */}
 
       {/* HEADER */}
-  <div className="grid md:grid-cols-[1.1fr_0.9fr] gap-10 md:gap-16 items-center my-10 md:my-14">
-  {/* Left Content */}
-  <motion.div
-    initial={{ opacity: 0, y: 40 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    viewport={{ once: true }}
-    transition={{ duration: 0.6 }}
-  >
-    <p className="font-mono text-[12px] tracking-[0.18em] uppercase text-[#FF3E7F] flex items-center gap-2">
-      <span className="w-5 h-px bg-[#FF3E7F]" />
-      Our Gallery
-    </p>
+      <div className="grid md:grid-cols-[1.1fr_0.9fr] gap-10 md:gap-16 items-center my-10 md:my-14">
+        {/* Left Content */}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          <p className="font-mono text-[12px] tracking-[0.18em] uppercase text-[#FF3E7F] flex items-center gap-2">
+            <span className="w-5 h-px bg-[#FF3E7F]" />
+            Our Gallery
+          </p>
 
-    <h2 className="font-[var(--font-heading,'Bebas_Neue',sans-serif)] font-normal text-[13vw] sm:text-6xl md:text-7xl leading-[0.92] tracking-wide mt-4">
-      WHAT THE
-      <br />
-      <span className="text-transparent [-webkit-text-stroke:1.5px_white]">
-        NIGHT LOOKS
-      </span>{" "}
-      LIKE
-    </h2>
+          <h2 className="font-[var(--font-heading,'Bebas_Neue',sans-serif)] font-normal text-[13vw] sm:text-6xl md:text-7xl leading-[0.92] tracking-wide mt-4">
+            WHAT THE
+            <br />
+            <span className="text-transparent [-webkit-text-stroke:1.5px_white]">
+              NIGHT LOOKS
+            </span>{" "}
+            LIKE
+          </h2>
 
-    {/* <p className="mt-5 max-w-[38ch] text-[15px] leading-relaxed text-white/60">
-      Six frames pulled off last weekend&apos;s contact sheet. Every set leaves
-      a trace on the floor — this is ours.
-    </p> */}
-  </motion.div>
+          
+        </motion.div>
 
-  {/* Right Button */}
-  <div className="flex md:justify-end md:items-end h-full">
-    <MotionLink
-      href="/gallery"
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.5, delay: 0.15 }}
-      whileHover="hover"
-      whileTap="hover"
-      className="relative inline-flex items-center gap-2 overflow-hidden isolate px-7 py-4 uppercase text-[13px] font-medium tracking-wider bg-white text-[#0B0B10] cursor-pointer"
-    >
-      <motion.span
-        className="absolute inset-0 -z-10 bg-[linear-gradient(100deg,#FF3E7F,#7A6BC9)]"
-        initial={{ x: "-101%" }}
-        variants={{ hover: { x: 0 } }}
-        transition={{ duration: 0.45, ease: [0.65, 0, 0.35, 1] }}
-      />
+        {/* Right Button */}
+        <div className="flex md:justify-end md:items-end h-full">
+          <MotionLink
+            href="/gallery"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.15 }}
+            whileHover="hover"
+            whileTap="hover"
+            className="relative inline-flex items-center gap-2 overflow-hidden isolate px-7 py-4 uppercase text-[13px] font-medium tracking-wider bg-white text-[#0B0B10] cursor-pointer"
+          >
+            <motion.span
+              className="absolute inset-0 -z-10 bg-[linear-gradient(100deg,#FF3E7F,#7A6BC9)]"
+              initial={{ x: "-101%" }}
+              variants={{ hover: { x: 0 } }}
+              transition={{ duration: 0.45, ease: [0.65, 0, 0.35, 1] }}
+            />
 
-      <motion.span
-        variants={{ hover: { color: "#F5F3EE" } }}
-        transition={{ duration: 0.2 }}
-      >
-        Enter the Gallery
-      </motion.span>
-    </MotionLink>
-  </div>
-</div>
+            <motion.span
+              variants={{ hover: { color: "#F5F3EE" } }}
+              transition={{ duration: 0.2 }}
+            >
+              Enter the Gallery
+            </motion.span>
+          </MotionLink>
+        </div>
+      </div>
 
       {/* TICKER */}
       <div className="border-y border-white/[0.14] py-3.5 mb-14 overflow-hidden whitespace-nowrap">
@@ -132,10 +136,15 @@ export default function Gallery() {
           transition={{ duration: 24, ease: "linear", repeat: Infinity }}
         >
           {Array.from({ length: 2 }).map((_, i) => (
-            <span key={i} className="font-mono text-[12px] tracking-[0.12em] uppercase text-white/55 pr-9">
-              <b className="text-[#33FFE0] font-medium">Tonight</b> — live sets &nbsp;•&nbsp;
-              <b className="text-[#33FFE0] font-medium">Doors</b> at 22:00 &nbsp;•&nbsp;
-              DJ experience &nbsp;•&nbsp; Full gallery — 240 frames &nbsp;•&nbsp;
+            <span
+              key={i}
+              className="font-mono text-[12px] tracking-[0.12em] uppercase text-white/55 pr-9"
+            >
+              <b className="text-[#33FFE0] font-medium">Tonight</b> — live sets
+              &nbsp;•&nbsp;
+              <b className="text-[#33FFE0] font-medium">Doors</b> at 22:00
+              &nbsp;•&nbsp; DJ experience &nbsp;•&nbsp; Full gallery — 240
+              frames &nbsp;•&nbsp;
             </span>
           ))}
         </motion.div>
@@ -165,17 +174,7 @@ export default function Gallery() {
             {/* bottom-up shade for legibility */}
             <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/5 to-transparent pointer-events-none" />
 
-            {/* diagonal sweep, signature micro-interaction */}
-            {/* <motion.div
-              className="absolute inset-0 pointer-events-none mix-blend-screen"
-              style={{
-                background:
-                  "linear-gradient(135deg, transparent 40%, rgba(255,62,127,0.35) 50%, transparent 60%)",
-              }}
-              initial={{ x: "-160%", skewX: -12 }}
-              variants={{ hover: { x: "160%" } }}
-              transition={{ duration: 0.8 }}
-            /> */}
+            
 
             <span className="absolute top-3 left-3 z-10 font-mono text-[10.5px] tracking-wider text-white/85 border border-white/35 px-1.5 py-0.5">
               {f.n}
@@ -197,8 +196,6 @@ export default function Gallery() {
           </motion.figure>
         ))}
       </div>
-
-   
     </section>
   );
 }
