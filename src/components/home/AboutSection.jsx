@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 
 const MotionLink = motion(Link);
 
@@ -131,10 +132,12 @@ export default function About() {
                 className="relative w-[58%] aspect-[3/4] overflow-hidden
                 sm:[clip-path:polygon(0_0,100%_0,84%_100%,0_100%)]"
               >
-                <img
-                  src="image4.webp"
-                  alt="Inside Chicane sports bar"
-                  className="w-full h-full object-cover"
+                <Image
+                  src="/image4.webp"
+                  alt="Inside Chicane Sports Bar in Noida"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  className="object-cover"
                 />
               </motion.div>
 
@@ -170,8 +173,12 @@ export default function About() {
               className="absolute top-4 left-4 sm:top-6 sm:left-6 bg-[var(--color-primary)] text-black
               px-5 py-2 [clip-path:polygon(0_0,100%_0,92%_100%,0_100%)] shadow-lg"
             >
-              <span className="font-[var(--font-heading)] text-2xl leading-none">5+</span>
-              <span className="ml-1 text-[10px] uppercase tracking-widest font-bold">Years Running</span>
+              <span className="font-[var(--font-heading)] text-2xl leading-none">
+                5+
+              </span>
+              <span className="ml-1 text-[10px] uppercase tracking-widest font-bold">
+                Years Running
+              </span>
             </motion.div>
           </div>
         </div>
@@ -201,7 +208,6 @@ export default function About() {
                 A Name Beyond Ordinary
               </span>
             </div>
-          
           </div>
         </motion.div>
       </div>

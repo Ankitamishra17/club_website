@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 import {
   FaWineGlassAlt,
   FaHeadphones,
@@ -138,9 +139,9 @@ export default function HeroSection() {
           transition={{ duration: 0.6, delay: 0.1 }}
           className="font-display mt-3 break-words text-[13vw] uppercase leading-[0.95] tracking-wide xs:text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-[5.5rem]"
         >
-          Drink. Dance.
+          Chicane Sports
           <br />
-          <span className="text-[var(--color-brand-pink,#ec1a63)]">Unwind.</span>
+          <span className="text-[var(--color-brand-pink,#ec1a63)]"> Bar</span>
         </motion.h1>
 
         <motion.p
@@ -149,7 +150,8 @@ export default function HeroSection() {
           transition={{ duration: 0.5, delay: 0.2 }}
           className="mt-5 max-w-md text-sm text-gray-300 md:text-base"
         >
-          Premium drinks, electrifying music and unforgettable nights.
+          Experience live sports, great food, premium drinks, music and
+          unforgettable nights at Chicane Sports Bar in Noida.
         </motion.p>
 
         {/* Buttons — stack and go full width on phones so they stay easy to tap */}
@@ -193,7 +195,9 @@ export default function HeroSection() {
             >
               <f.icon className="mt-1 h-5 w-5 flex-shrink-0 text-[var(--color-brand-pink,#ec1a63)]" />
               <div>
-                <h3 className="text-sm font-bold uppercase tracking-widest">{f.title}</h3>
+                <h3 className="text-sm font-bold uppercase tracking-widest">
+                  {f.title}
+                </h3>
                 <p className="mt-1 text-xs text-gray-400">{f.desc}</p>
               </div>
             </div>
