@@ -4,15 +4,14 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
-import { FiInstagram, FiFacebook, FiYoutube } from "react-icons/fi";
+import { FiInstagram, FiFacebook, } from "react-icons/fi";
 import TicketModal from "./TicketModal";
 
 const socials = [
-  { icon: FiInstagram, href: "https://instagram.com" },
-  { icon: FiFacebook, href: "https://facebook.com" },
-  { icon: FiYoutube, href: "https://youtube.com" },
+  { icon: FiInstagram, href: "https://www.instagram.com/chicaneclubnlounge/?fbclid=IwY2xjawUQcixwZG9mBGV4dG4DYWVtAjExAGJyaWQRMVRBQzFvWXpxSEZNZVQ0eEtzcnRjBmFwcF9pZAEwAAEeKvq85lz1UksvD2ZwRWVuRn7JQm7d4CjMVd-kAmikZx8-h-_fG9zLqkM0bSs_aem_Tcz_Yjboth1dUPbp8blGbA" },
+  { icon: FiFacebook, href: "https://www.facebook.com/profile.php?id=61592786414880" },
+  
 ];
-
 export default function Footer() {
   const [modalOpen, setModalOpen] = useState(false);
 
